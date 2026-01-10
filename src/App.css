@@ -1,0 +1,63 @@
+.topNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.navDiv{
+    border: 1px solid #333; 
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.terminalLink{
+    padding: 10px 20px;
+    text-decoration: none;
+    border-left: 1px solid #333;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#guiLink{
+    background-color: transparent;
+    color: #333;
+}
+#cliLink{
+    background-color: #333;
+    color: #fff;
+}
+
+.terminal{
+    padding: 20px;
+    background: #000;
+    color: #0f0;
+    min-height: 100vh;
+    font-family: 'Space Mono', monospace;
+}
+/* For a Bold, Tech look */
+.name-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  margin: 5px 0 0 0;
+  color: #666;
+}
+
+button {
+  font-family: 'JetBrains Mono', monospace;
+  color: #333;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  background: linear-gradient(to right, #6366f1, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 800;
+  margin: 0 ;
+}

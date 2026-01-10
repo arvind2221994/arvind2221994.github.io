@@ -1,27 +1,53 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './App.css';
+import LeftMenu from './LeftMenu';
+import GuiBody from './GuiBody';
+import TerminalUI from './TerminalUI';
 
-const Home = () => (
-  <div style={{ padding: '20px' }}>
-    <h1>Arvind's Minimalist Portfolio</h1>
-    <p>Web Developer | React Specialist</p>
-    <Link to="/terminal">Open Terminal →</Link>
-  </div>
-);
+const Home = () => {
+  const [mode, setMode] = useState('GUI');
+  const [menuWidth, setMenuWidth] = useState('2rem');
 
-const TerminalPlaceholder = () => (
-  <div style={{ padding: '20px', background: '#000', color: '#0f0', minHeight: '100vh' }}>
-    <p> Terminal initialized. Logic goes here...</p>
-    <Link to="/" style={{ color: '#fff' }}>Back Home</Link>
-  </div>
-);
+  return (
+    <div>
+      <nav className="topNav">
+        <div>
+          <h1>Arvind's mind</h1>
+          <p className="name-heading">Engineering inside...</p>
+        </div>
+        
+        <div className='navDiv'>
+          <button 
+            onClick={() => setMode('GUI')}
+            className="terminalLink"
+            id={mode === 'GUI' ? 'cliLink' : 'guiLink'}
+          >
+            GUI
+          </button>
+          <button 
+            onClick={() => setMode('Terminal')}
+            className="terminalLink"
+            id={mode === 'Terminal' ? 'cliLink' : 'guiLink'}
+          >
+            Terminal
+          </button>
+        </div>
+      </nav>
+      <div>
+        <LeftMenu menuWidth={menuWidth} setMenuWidth={setMenuWidth} />
+         {mode === 'Terminal' ? <TerminalUI menuWidth={menuWidth} /> : <GuiBody menuWidth={menuWidth} />}
+      </div>
+      
+    </div>
+  );
+};
 
 const App = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/terminal" element={<TerminalPlaceholder />} />
       </Routes>
     </Router>
   );
