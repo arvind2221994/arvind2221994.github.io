@@ -1,0 +1,106 @@
+{
+  "about": {
+    "title": "🚀 The Full-Stack \"Swiss Army Knife\" (with a Lead Engineer's Brain)",
+    "summary": "<div class=\"professional-bio\"><p class=\"tagline\">7+ years. Zero fluff. Infinite scale.</p><p class=\"intro\">I don't just write code; I build digital engines that don't know how to quit. As a Lead Full-Stack Engineer, I've spent the last decade turning \"impossible\" architectures into high-performance reality. From the invisible magic of backend systems to the \"pixel-perfect\" polish of modern frontends, I bridge the gap between business dreams and technical muscle.</p><h2>🛠️ My Secret Sauce:</h2><div class=\"secret-sauce\"><p><strong>The Big Picture:</strong> I own the entire SDLC. I don't just ship features; I streamline the factory that builds them using CI/CD pipelines and GenAI-powered workflows.</p><p><strong>Data-Driven DNA:</strong> I'm obsessed with observability. If it moves, I track it. I use custom scripting and real-time dashboards to hunt down bugs before they even realize they're bugs.</p><p><strong>UI/UX with an Edge:</strong> I believe a backend is only as good as the interface it feeds. I build modular, intuitive frontends that users actually want to touch.</p><p><strong>Business Mindset:</strong> Tech for tech's sake is a hobby. Tech for growth is a mission. I align every architectural decision with the bottom line.</p></div></div>",
+    "contact": {
+      "email": "arvind2221994@gmail.com",
+      "location": "Bengaluru, KA, India",
+      "linkedin": "https://www.linkedin.com/in/arvindn1994/",
+      "github": "https://github.com/arvind2221994"
+    }
+  },
+  "experience": [
+    {
+      "title": "Technology Lead",
+      "company": "Infogain India Pvt. Ltd.",
+      "duration": "May 2025 - Present",
+      "description": "As a high-velocity Tech Lead, I orchestrated the delivery of 20+ features across 7 codebases and 3 tech stacks in just 3 months, while simultaneously boosting SEO performance by 20% and slashing technical debt by 35% through Agentic AI and proactive system optimization.",
+      "achievements": [
+        "Demonstrated leadership in feature development and optimization for a team of 6, resulting in a 20% improvement in Google Search Console listings across 20 high-traffic websites.",
+        "Spearheaded a codebase refactoring initiative, reducing technical debt and improving SonarQube compliance by 35% and resolving package vulnerabilities.",
+        "Automated technical backlog identification by using agentic AI, reducing planning time by 30%.",
+        "Devised innovative solutions to feature requests, that helped identify deeper systemic issues and improve product reliability and reduce defects by at least 15 percent.",
+        "Proactively monitored, triaged and fixed production defects utilizing Datadog and GTM for real-user monitoring, analytics, and rapid troubleshooting.",
+        "Pioneered LLM-assisted documentation and runbook development, for effective knowledge base creation and streamlined the onboarding of new engineers."
+      ]
+    },
+    {
+      "title": "Senior Software Engineer",
+      "company": "Company Name",
+      "duration": "Jan 2023 - Present",
+      "description": "Brief description of your role and responsibilities.",
+      "achievements": [
+        "Achievement or key responsibility #1",
+        "Achievement or key responsibility #2",
+        "Achievement or key responsibility #3"
+      ]
+    },
+    {
+      "title": "Software Engineer",
+      "company": "Previous Company",
+      "duration": "Jun 2020 - Dec 2022",
+      "description": "Brief description of your role and responsibilities.",
+      "achievements": [
+        "Achievement or key responsibility #1",
+        "Achievement or key responsibility #2"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "Master of Science in Computer Science",
+      "institution": "University Name",
+      "duration": "2018 - 2020",
+      "details": "Focus on Software Engineering and Machine Learning"
+    },
+    {
+      "degree": "Bachelor of Science in Computer Science",
+      "institution": "University Name",
+      "duration": "2014 - 2018",
+      "details": "GPA: 3.8/4.0"
+    }
+  ],
+  "skills": [
+    {
+      "category": "Languages",
+      "skills": ["JavaScript", "Python", "Java", "TypeScript", "C++"]
+    },
+    {
+      "category": "Frontend",
+      "skills": ["React", "Vue.js", "HTML5", "CSS3", "Webpack"]
+    },
+    {
+      "category": "Backend",
+      "skills": ["Node.js", "Express", "Django", "REST APIs", "GraphQL"]
+    },
+    {
+      "category": "Databases",
+      "skills": ["PostgreSQL", "MongoDB", "Redis", "MySQL"]
+    },
+    {
+      "category": "Tools & Platforms",
+      "skills": ["Git", "Docker", "AWS", "CI/CD", "Linux"]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Project Name 1",
+      "description": "A brief description of what this project does and the problem it solves.",
+      "technologies": ["React", "Node.js", "MongoDB"],
+      "link": "https://project1.com",
+      "github": "https://github.com/yourusername/project1"
+    },
+    {
+      "title": "Project Name 2",
+      "description": "Another project description highlighting key features and impact.",
+      "technologies": ["Python", "Django", "PostgreSQL"],
+      "github": "https://github.com/yourusername/project2"
+    },
+    {
+      "title": "Project Name 3",
+      "description": "Description of a third project showcasing different skills.",
+      "technologies": ["TypeScript", "Vue.js", "Express"],
+      "link": "https://project3.com"
+    }
+  ]
+}

@@ -1,5 +1,10 @@
 import React from 'react';
 import './GuiBody.css';
+import AboutSection from './components/AboutSection';
+import Experience from './components/Experience';
+import Education from './components/Education';
+import Skills from './components/Skills';
+import Projects from './components/Projects';
 
 const GuiBody = ({ menuWidth }) => {
   return (
@@ -7,8 +12,11 @@ const GuiBody = ({ menuWidth }) => {
       className='guiBody' 
       style={{ marginLeft: menuWidth, transition: 'margin-left 0.3s ease' }}
     >
-      <h2>Welcome to the GUI</h2>
-      <p>Main UI content goes here...</p>
+      <AboutSection />
+      <Experience />
+      <Education />
+      <Skills />
+      <Projects />
     </div>
   );
 };

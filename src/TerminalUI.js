@@ -5,7 +5,7 @@ const TerminalUI = ({ menuWidth }) => {
   return (
       <div 
         className='terminal'
-        style={{ marginLeft: menuWidth, transition: 'margin-left 0.3s ease' }}
+        style={{ marginLeft: menuWidth}}
       >
           <p> Terminal initialized. Logic goes here...</p>
       </div>

@@ -13,7 +13,7 @@ const Home = () => {
     <div>
       <nav className="topNav">
         <div>
-          <h1>Arvind's mind</h1>
+          <h1>Arvind Narayanan</h1>
           <p className="name-heading">Engineering inside...</p>
         </div>
         
