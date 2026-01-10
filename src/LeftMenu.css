@@ -15,11 +15,13 @@
     padding: 20px;
     width: 100%;
     transition: opacity 0.3s ease;
+    margin-top:2rem;
 }
 .arrowButton{
     position: absolute;
-    top: 40%;
-    font-size: 40px;
+    top: 0.5rem;
+    left: 0.5rem;
+    font-size: 2rem;
     margin-left:0.5rem;
     cursor: pointer;
     color: var(--text-dark);
@@ -30,4 +32,20 @@
     color: var(--text-dark);
     font-size: 16px;
     white-space: nowrap;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.linksContainer a:hover{
+    background-color: rgba(39, 151, 226, 0.1);
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.linksContainer a.active{
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    color: var(--text-white);
+    font-weight: 600;
 }

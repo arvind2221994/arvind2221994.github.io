@@ -4,14 +4,12 @@ import './AboutSection.css';
 
 
 const AboutSection = () => {
-  const { summary, contact } = resumeData.about;
+  const { summary } = resumeData.about;
   
   return (
     <section className="resume-section" id="about">
       <h2>{resumeData.about.title}</h2>
       <div dangerouslySetInnerHTML={{__html: summary}} />
-      <h2> 👤 My profiles</h2>
-      
     </section>
   );
 };

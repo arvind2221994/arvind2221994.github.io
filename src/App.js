@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import LeftMenu from './LeftMenu';
 import GuiBody from './GuiBody';
 import TerminalUI from './TerminalUI';
 import Footer from './Footer';
 
 const Home = () => {
   const [mode, setMode] = useState('GUI');
-  const [menuWidth, setMenuWidth] = useState('3rem');
 
   return (
     <div>
@@ -36,8 +34,7 @@ const Home = () => {
         </div>
       </nav>
       <div>
-        <LeftMenu menuWidth={menuWidth} setMenuWidth={setMenuWidth} />
-         {mode === 'Terminal' ? <TerminalUI menuWidth={menuWidth} /> : <GuiBody menuWidth={menuWidth} />}
+         {mode === 'Terminal' ? <TerminalUI /> : <GuiBody />}
       </div>
       <Footer />
     </div>

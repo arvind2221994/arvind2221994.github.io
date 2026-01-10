@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
 import './LeftMenu.css';
-import { TfiControlForward } from "react-icons/tfi";
+import { GiHamburgerMenu } from "react-icons/gi";
 
-const LeftMenu = ({ menuWidth, setMenuWidth }) => {
+const LeftMenu = ({ menuWidth, setMenuWidth, activeSection, setActiveSection }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const handleToggle = () => {
     const newExpanded = !isExpanded;
     setIsExpanded(newExpanded);
-    setMenuWidth(newExpanded ? '15%' : '3rem');
+    setMenuWidth(newExpanded ? '15%' : '4rem');
+  };
+
+  const handleLinkClick = (section) => {
+    setActiveSection(section);
   };
 
   return (
     <div className="leftmenu" style={{width: menuWidth}}>
-        <TfiControlForward 
+        <GiHamburgerMenu 
             className="arrowButton" 
             onClick={handleToggle}
             style={{transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)'}}
@@ -21,11 +25,41 @@ const LeftMenu = ({ menuWidth, setMenuWidth }) => {
         />
       {isExpanded && (
         <div className="linksContainer" style={{opacity: isExpanded ? 1 : 0}}>
-          <a href="#about" >About</a>
-          <a href="#projects" >Projects</a>
-          <a href="#skills" >Skills</a>
-          <a href="#experience" >Experience</a>
-          <a href="#contact" >Contact</a>
+          <a 
+            href="#about" 
+            onClick={(e) => { e.preventDefault(); handleLinkClick('about'); }}
+            className={activeSection === 'about' ? 'active' : ''}
+          >
+            About
+          </a>
+          <a 
+            href="#experience" 
+            onClick={(e) => { e.preventDefault(); handleLinkClick('experience'); }}
+            className={activeSection === 'experience' ? 'active' : ''}
+          >
+            Experience
+          </a>
+          <a 
+            href="#skills" 
+            onClick={(e) => { e.preventDefault(); handleLinkClick('skills'); }}
+            className={activeSection === 'skills' ? 'active' : ''}
+          >
+            Skills
+          </a>
+          <a 
+            href="#projects" 
+            onClick={(e) => { e.preventDefault(); handleLinkClick('projects'); }}
+            className={activeSection === 'projects' ? 'active' : ''}
+          >
+            Projects
+          </a>
+          <a 
+            href="#education" 
+            onClick={(e) => { e.preventDefault(); handleLinkClick('education'); }}
+            className={activeSection === 'education' ? 'active' : ''}
+          >
+            Education
+          </a>
         </div>
       )}
     </div>
