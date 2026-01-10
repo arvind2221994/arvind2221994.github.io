@@ -14,9 +14,7 @@ const GuiBody = ({ menuWidth }) => {
     >
       <AboutSection />
       <Experience />
-      <Education />
       <Skills />
-      <Projects />
     </div>
   );
 };

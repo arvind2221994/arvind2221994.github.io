@@ -1,12 +1,18 @@
 import React from 'react';
 import resumeData from '../data/resumeData.json';
+import './Skills.css';
 
 const SkillCategory = ({ category, skills }) => (
-  <div className="skill-category">
-    <h3>{category}</h3>
-    <div className="skill-tags">
+  <div className="skill-category-card">
+    <div className="skill-category-header">
+      <h3 className="skill-category-title">{category}</h3>
+      <span className="skill-count">{skills.length} skills</span>
+    </div>
+    <div className="skill-tags-grid">
       {skills.map((skill, index) => (
-        <span key={index} className="skill-tag">{skill}</span>
+        <div key={index} className="skill-badge">
+          <span className="skill-name">{skill}</span>
+        </div>
       ))}
     </div>
   </div>
@@ -14,11 +20,16 @@ const SkillCategory = ({ category, skills }) => (
 
 const Skills = () => {
   return (
-    <section className="resume-section" id="skills">
-      <h2>Skills</h2>
-      {resumeData.skills.map((category, index) => (
-        <SkillCategory key={index} {...category} />
-      ))}
+    <section className="resume-section skills-section" id="skills">
+      <div className="skills-header">
+        <h2>⚡ Arsenal of Expertise</h2>
+        <p className="skills-subtitle">From pixels to pipelines — my tech stack that powers my innovation</p>
+      </div>
+      <div className="skills-grid">
+        {resumeData.skills.map((category, index) => (
+          <SkillCategory key={index} {...category} />
+        ))}
+      </div>
     </section>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './LeftMenu.css';
+import { TfiControlForward } from "react-icons/tfi";
 
 const LeftMenu = ({ menuWidth, setMenuWidth }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -7,20 +8,17 @@ const LeftMenu = ({ menuWidth, setMenuWidth }) => {
   const handleToggle = () => {
     const newExpanded = !isExpanded;
     setIsExpanded(newExpanded);
-    setMenuWidth(newExpanded ? '15%' : '2rem');
+    setMenuWidth(newExpanded ? '15%' : '3rem');
   };
 
   return (
     <div className="leftmenu" style={{width: menuWidth}}>
-      <button 
-        className="arrowButton"
-        style={{transform: `translateY(-50%) rotate(${isExpanded ? '180deg' : '0deg'})`}}
-        onClick={handleToggle}
-        aria-label={isExpanded ? 'Collapse menu' : 'Expand menu'}
-      >
-        →
-      </button>
-      
+        <TfiControlForward 
+            className="arrowButton" 
+            onClick={handleToggle}
+            style={{transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)'}}
+            aria-label={isExpanded ? 'Collapse menu' : 'Expand menu'}
+        />
       {isExpanded && (
         <div className="linksContainer" style={{opacity: isExpanded ? 1 : 0}}>
           <a href="#about" >About</a>

@@ -4,10 +4,11 @@ import './App.css';
 import LeftMenu from './LeftMenu';
 import GuiBody from './GuiBody';
 import TerminalUI from './TerminalUI';
+import Footer from './Footer';
 
 const Home = () => {
   const [mode, setMode] = useState('GUI');
-  const [menuWidth, setMenuWidth] = useState('2rem');
+  const [menuWidth, setMenuWidth] = useState('3rem');
 
   return (
     <div>
@@ -38,7 +39,7 @@ const Home = () => {
         <LeftMenu menuWidth={menuWidth} setMenuWidth={setMenuWidth} />
          {mode === 'Terminal' ? <TerminalUI menuWidth={menuWidth} /> : <GuiBody menuWidth={menuWidth} />}
       </div>
-      
+      <Footer />
     </div>
   );
 };

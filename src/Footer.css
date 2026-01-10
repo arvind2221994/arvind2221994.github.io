@@ -1,0 +1,19 @@
+.contact-info{
+    position: sticky;
+    bottom: 0;
+    z-index: 1000;
+    font-family: "Segoe UI Semibold", "Segoe UI", "Candara", sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 3rem;
+    font-size: 1.1rem;
+    background-color: white;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    transition: margin-left 0.3s ease;
+}
+.contact-info a{
+    margin-left: 0.5rem;
+}

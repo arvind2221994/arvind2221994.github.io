@@ -1,0 +1,142 @@
+@import '../variables.css';
+
+.timeline-container {
+  position: relative;
+  padding: var(--spacing-md) 20px;
+    background: var(--bg-white);
+    border-radius: 8px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+}
+
+.timeline-container h2{
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-blue);
+    border-bottom: 2px solid var(--border-blue);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 60px;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Timeline Dot */
+.timeline-dot {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  border: 3px solid var(--bg-white);
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px var(--primary-color);
+  z-index: 2;
+}
+
+/* Timeline Line */
+.timeline-line {
+  position: absolute;
+  left: 9px;
+  top: 20px;
+  bottom: -40px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--primary-color) 0%, var(--border-light) 100%);
+  z-index: 1;
+}
+
+/* Timeline Content */
+.timeline-content {
+  position: relative;
+}
+
+.timeline-date {
+  display: inline-block;
+  padding: 6px 12px;
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  color: var(--text-white);
+  border-radius: 20px;
+  font-size: 0.9em;
+  font-weight: 600;
+  margin-bottom: 12px;
+  font-family: var(--font-mono);
+}
+
+.timeline-card {
+  background: var(--bg-white);
+  border-left: 4px solid var(--primary-color);
+  border-radius: 8px;
+  padding: var(--spacing-md);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-card:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 16px rgba(39, 151, 226, 0.2);
+}
+
+.timeline-title {
+  color: var(--text-blue);
+  font-size: 1.4em;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  font-family: var(--font-primary);
+}
+
+.timeline-company {
+  color: var(--primary-color);
+  font-size: 1.1em;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+}
+
+.timeline-description {
+  color: var(--text-black);
+  line-height: 1.6;
+  margin: 12px 0;
+}
+
+.timeline-achievements {
+  margin: 16px 0 0 0;
+  padding-left: 20px;
+  list-style: none;
+}
+
+.timeline-achievements li {
+  position: relative;
+  color: var(--text-black);
+  line-height: 1.8;
+  margin-bottom: 10px;
+  padding-left: 16px;
+}
+
+.timeline-achievements li:before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .timeline-item {
+    padding-left: 40px;
+  }
+  
+  .timeline-dot {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .timeline-line {
+    left: 7px;
+  }
+  
+  .timeline-card {
+    padding: 15px;
+  }
+}

@@ -25,24 +25,44 @@
       ]
     },
     {
-      "title": "Senior Software Engineer",
-      "company": "Company Name",
-      "duration": "Jan 2023 - Present",
-      "description": "Brief description of your role and responsibilities.",
+      "title": "Senior Software Developer",
+      "company": "Infogain India Pvt. Ltd.",
+      "duration": "Oct 2023 - Jan 2025",
+      "description": "Drove end-to-end feature development and optimization across modern web stacks, leveraging OOP, DSA, and advanced caching strategies to deliver measurable improvements in lead analytics, performance, and deployment efficiency.",
       "achievements": [
-        "Achievement or key responsibility #1",
-        "Achievement or key responsibility #2",
-        "Achievement or key responsibility #3"
+        "Increased lead analytics by over 10% by developing a new lead capture flow utilizing Object Oriented Programming in TypeScript, resulting in a refined and responsive user experience.",
+        "Leveraged strong knowledge of Data Structures and Algorithms (DSA) and Singleton design patterns to implement features to scale and efficient resource management.",
+        "Engineered and contributed to efficient cache handling solutions using IndexedDB and web workers in frontend for more performant applications, and Redis and Cloudflare in backend, improving overall asset delivery speed.",
+        "Automated workflows and CI/CD pipelines, successfully reducing deployment time by 70%.",
+        "Achieved 85% code coverage and used prompt engineering on AI agents to resolve issues flagged by SonarCloud and perform unit testing in Jest and package dependency issues.",
+        "Designed a RESTful tracking application using React to monitor key business metrics, providing stakeholders with immediate insights.",
+        "Implemented Server-side rendering (SSR) in NodeJS backend, resulting in a measurable improvement in Core Web Vital scores and SEO performance.",
+        "Directed Root Cause Analysis (RCA) and debugging sessions to systematically analyze system defects, server discrepancies, and evolving lead capture patterns, ensuring system reliability."
       ]
     },
     {
-      "title": "Software Engineer",
-      "company": "Previous Company",
-      "duration": "Jun 2020 - Dec 2022",
-      "description": "Brief description of your role and responsibilities.",
+      "title": "Member of Technical Staff",
+      "company": "Cerebras Inc.",
+      "duration": "Jan 2023 - Jun 2023",
+      "description": "Developed internal tooling to streamline LLM testing workflows and database management.",
       "achievements": [
-        "Achievement or key responsibility #1",
-        "Achievement or key responsibility #2"
+        "Developed the Bootstrap-based internal tool, utilized by LLM testers to manage their test result database, resulting in a 30% boost in cycle time and cost reduction."
+      ]
+    },
+    {
+      "title": "Software Engineer in Test",
+      "company": "MathWorks India",
+      "duration": "Jul 2016 - Dec 2022",
+      "description": "Led comprehensive quality assurance initiatives across platform testing, automation, and customer issue resolution, while mentoring junior engineers and driving product quality improvements through innovative testing methodologies.",
+      "achievements": [
+        "Spearheaded regression and platform testing, uncovering over 200 critical issues and driving company-wide qualification for two broad-impact features, significantly reducing product risk and triaging over 10,000 reported customer issues.",
+        "Developed core system service wrappers using C++ and the Qt framework, including the creation of mocking frameworks that significantly improved unit testability and code reliability.",
+        "Innovated multiple image processing algorithms to automate rigorous testing of graphics and UI features across product builds, enhancing quality assurance coverage.",
+        "Actively participated in cross-functional design reviews with all stakeholders, raising key issues concerning testability and influencing product architecture for increased robustness.",
+        "Authored over 35 comprehensive test procedures and developed 50+ automated tests using Google Test (C++), QUnit, and Selenium (JavaScript), to achieve more than 80% coverage.",
+        "Awarded the internal Hall of Fame twice for consistently identifying the maximum number of critical issues during internal product testing, demonstrating exceptional bug detection skills.",
+        "Introduced a data-driven methodology to optimize customer issue resolution metrics by leveraging Power BI insights, improving the efficiency of the support pipeline.",
+        "Mentored over 20 interns and freshers on effective testing methodologies and best practices, fostering a culture of continuous quality improvement across the organization."
       ]
     }
   ],
@@ -62,24 +82,28 @@
   ],
   "skills": [
     {
-      "category": "Languages",
-      "skills": ["JavaScript", "Python", "Java", "TypeScript", "C++"]
+      "category": "Frontend & Design",
+      "skills": ["HTML", "CSS", "Tailwind", "Javascript", "Typescript", "ReactJS", "Bootstrap", "Figma", "Crownpeak CMS", "Chrome Dev Tools", "Web workers", "IndexedDB", "Redux", "Sockets"]
     },
     {
-      "category": "Frontend",
-      "skills": ["React", "Vue.js", "HTML5", "CSS3", "Webpack"]
+      "category": "Back-end development",
+      "skills": ["Node.js", "C++", "REST API", "Postman", "ADB2C", "GraphQL", "AWS SDK"]
     },
     {
-      "category": "Backend",
-      "skills": ["Node.js", "Express", "Django", "REST APIs", "GraphQL"]
+      "category": "Cloud infrastructure",
+      "skills": ["AWS S3", "AWS Lambda", "AWS EKS", "Cloudwatch", "NLB", "SQS", "IAM", "KMS", "GCP Cloud Run", "Firebase", "Pub/Sub", "Cloudflare", "Redis"]
     },
     {
-      "category": "Databases",
-      "skills": ["PostgreSQL", "MongoDB", "Redis", "MySQL"]
+      "category": "DevOps & Monitoring",
+      "skills": ["Python", "AzureDevOps", "Git", "SonarQube", "Datadog", "Google Search Console", "Docker"]
     },
     {
-      "category": "Tools & Platforms",
-      "skills": ["Git", "Docker", "AWS", "CI/CD", "Linux"]
+      "category": "Generative AI",
+      "skills": ["Copilot", "Gemini", "Model Context Protocol (MCP)", "Agentic AI", "Prompt Engineering", "BMAD"]
+    },
+    {
+      "category": "Certifications & Courses",
+      "skills": ["Github Copilot GH 300 Certification", "Prompt Engineering (Coursera)", "Amazon Bedrock (Amazon Workshops)", "GCP Firebase & Cloud Run (Google Cloud Skills)"]
     }
   ],
   "projects": [

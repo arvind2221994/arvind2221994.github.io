@@ -19,16 +19,15 @@
 .arrowButton{
     position: absolute;
     top: 40%;
-    transform: translateY(-50%) rotate(0deg);
-    background: none;
-    border: none;
-    font-size: 24px;
+    font-size: 40px;
+    margin-left:0.5rem;
     cursor: pointer;
+    color: var(--text-dark);
     transition: transform 0.3s ease;
 }
 .linksContainer a{
     text-decoration: none;
-    color: #333;
+    color: var(--text-dark);
     font-size: 16px;
     white-space: nowrap;
 }
