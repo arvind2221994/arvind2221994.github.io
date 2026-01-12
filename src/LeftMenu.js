@@ -54,11 +54,11 @@ const LeftMenu = ({ menuWidth, setMenuWidth, activeSection, setActiveSection }) 
             Projects
           </a>
           <a 
-            href="#education" 
-            onClick={(e) => { e.preventDefault(); handleLinkClick('education'); }}
-            className={activeSection === 'education' ? 'active' : ''}
+            href="#example" 
+            onClick={(e) => { e.preventDefault(); handleLinkClick('example'); }}
+            className={activeSection === 'example' ? 'active' : ''}
           >
-            Education
+            MicroFrontend
           </a>
         </div>
       )}

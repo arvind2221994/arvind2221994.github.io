@@ -4,6 +4,7 @@ import './App.css';
 import GuiBody from './GuiBody';
 import TerminalUI from './TerminalUI';
 import Footer from './Footer';
+import TicTacToe from './tictactoe/TicTacToe';
 
 const Home = () => {
   const [mode, setMode] = useState('GUI');
@@ -46,6 +47,7 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/tictactoe" element={<TicTacToe />} />
       </Routes>
     </Router>
   );

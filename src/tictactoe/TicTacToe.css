@@ -1,0 +1,61 @@
+@import '../variables.css';
+.header p{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+h1{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.game-board{
+    gap:0.5rem;
+    display:grid;
+    align-items: center;
+    justify-content: center;
+}
+.board-row{
+    display: flex;
+    gap:0.5rem;
+}
+.square{
+    width: 5rem;
+    height: 5rem;
+    background-color: var(--bg-light);
+    border: 2px solid var(--border-dark);
+    font-size: 3rem;
+    cursor: pointer;
+    font-family: 'Times New Roman', Times, serif;
+    transition: background-color 0.3s ease;
+}
+.status{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    font-weight: 500;
+    font-family:'Times New Roman', Times, serif;
+}
+.status button{
+    padding:1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--text-dark);
+    text-transform: uppercase;
+    margin-left:0.5rem;
+    border: none;
+}
+.footer{
+    display:block;
+    position:fixed;
+    bottom:1rem;
+    width:100%;
+    text-align:center;
+    font-family: var(--font-primary);
+    color: var(--text-dark);
+}
