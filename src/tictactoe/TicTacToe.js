@@ -67,7 +67,21 @@ export default function TicTacToe() {
 
   return (
     <>
-    {winner && <Confetti recycle={false} numberOfPieces={500} />}
+    {winner && (
+      <Confetti 
+        recycle={false} 
+        numberOfPieces={500}
+        gravity={0.3}
+        initialVelocityY={30}
+        confettiSource={{
+          x: 0,
+          y: window.innerHeight,
+          w: window.innerWidth,
+          h: 0
+        }}
+        tweenDuration={3000}
+      />
+    )}
     <header className='header'>
       <h1>Tic Tac Toe Game</h1>
       <p>
