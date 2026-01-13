@@ -42,25 +42,25 @@ export default function TicTacToe() {
   if (winner) {
     status = (
       <>
-        <strong><u>Winner:</u></strong>&nbsp; {winner}! &nbsp; Would you like to <button onClick={handleReset}> play again?</button>
+        <strong style={{color: "green"}}><u>Winner</u>:&nbsp; {winner}!</strong> &nbsp; Would you like to <button onClick={handleReset}> play again?</button>
       </>
     );
   } else if (allSquaresNull(squares)) {
     status = (
       <>
-        <strong><u>Game Start</u></strong>&nbsp; X's turn
+        <strong style={{color: "red"}}><u>Game Start</u>:</strong>&nbsp; X's turn
       </>
     );
   } else if (isDraw(squares)) {
     status = (
       <>
-        <strong><u>Draw!</u></strong>&nbsp; Would you like to <br/> <button onClick={handleReset}> restart?</button>
+        <strong style={{color: "grey"}}><u>Draw!</u></strong>&nbsp; Would you like to <br/> <button onClick={handleReset}> restart?</button>
       </>
     );
   } else {
     status = (
       <>
-        <strong><u>Next player:</u></strong>&nbsp; {xIsNext ? "X" : "O"}
+        <strong style={{color: "blue"}}><u>Next player</u>: {xIsNext ? "X" : "O"}</strong>
       </>
     );
   }
