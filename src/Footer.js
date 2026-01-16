@@ -14,7 +14,7 @@ const Footer = () => {
             <div className="contact-info" >
                 <div>
                     <a href={`mailto:${contact.email}`} target='_blank' rel="noopener noreferrer" style={{fontSize:'1.5rem'}}>
-                        <SiGmail color="#ec1d0a" backgroundColor="#fff" />
+                        <SiGmail color="#ec1d0a" />
                     </a>
                 </div>
                 <div>

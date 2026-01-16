@@ -37,19 +37,19 @@
     padding:1rem;
     font-size: 1.2rem;
     cursor: pointer;
-    background-color: var(--primary-color);
-    color: var(--text-dark);
+    background-color: var(--bg-dark-blue);
+    color: var(--text-white);
     text-transform: uppercase;
     border: none;
 }
 .game-controls select{
-    padding: 0.5rem;
-    font-size: 1.5rem;
-    font-family:'Times New Roman', Times, serif;
+    padding: 0.3rem;
+    font-size: 1.2rem;
+    font-family:var(--font-terminal);
     cursor: pointer;
     border: 2px solid var(--border-dark);
     background-color: var(--bg-light);
-    color: var(--text-blue);
+    color: var(--text-black);
     font-weight: 700;
 }
 .game-board{
@@ -57,18 +57,45 @@
     align-items: center;
     justify-content: center;
     gap:0.5rem;
-
+    flex-direction: row;
 }
 .square{
     width:0.5rem;
     height:0.5rem;
-    padding:0.5rem;
-    margin:0.2rem;
-
+    padding:0.7rem;
+    margin:0.05rem;
+    background-color: var(--bg-light);
+}
+.opened{
+    background-color: var(--bg-white);
+}
+.goodbye{
+    border-color: var(--bg-red);
+    background-color: #e9acac;
 }
 .grid{
     display:grid;
     justify-content: center;
     align-items: center;
     text-align:center;
+}
+.message{
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+}
+.success{
+    color: green;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+.failure{
+    color: rgb(224, 90, 49);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+.hidden{
+    display: none;
 }
