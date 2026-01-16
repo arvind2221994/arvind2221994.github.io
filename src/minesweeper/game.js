@@ -1,28 +1,19 @@
-import React, { useState, useRef, createContext, useContext, useEffect } from 'react';
+import React, { useState, useRef, createContext, useContext, useEffect, useMemo } from 'react';
 import './game.css';
 import Footer from '../Footer';
 
 const GameContext = createContext();
 
-function Square({ isMine }) {
-    const [isOpened, setIsOpened] = useState(false);
-    const { setResult } = useContext(GameContext);
+function Square({ isMine, isOpened, onSquareClick }) {
+    const { result } = useContext(GameContext);
 
-    function onSquareClick() {
-        if(!isOpened){
-            if(isMine){
-                console.log("Game Over! You clicked on a mine.");
-                setResult(0); // Set game over state
-            } else {
-                console.log("Safe! No mine here.");
-            }
-            setIsOpened(true);
-        }
-    }
-    const className = `square ${isOpened ? (isMine ? 'goodbye' : 'opened') : ''}`;
+    const isGameOver = result !== -1;
+
+    const shouldReveal = (isGameOver && isMine) || isOpened;
+    const className = `square ${shouldReveal ? (isMine ? 'goodbye' : 'opened') : ''}`;
 
   return (
-    <button className={className} onClick={onSquareClick} disabled={isOpened} data-mine={isMine}></button>
+    <button className={className} onClick={onSquareClick} disabled={shouldReveal} data-mine={isMine}></button>
   );
 }
 
@@ -48,13 +39,49 @@ export default function Minesweeper(){
     const selectedDifficultyRef = useRef(difficulty);
     const [squares, setSquares] = useState(Array(difficulty * difficulty).fill(0));
     const [result, setResult] = useState(-1);
+    const [openedSquares, setOpenedSquares] = useState([]);
 
+    const isWin = useMemo(()=>{
+        if(!squares.length || !openedSquares.length) return false;
+
+        const totalMines = squares.filter(square => square === 1).length;
+        const totalOpened = openedSquares.filter(Boolean).length;
+        return (squares.length - totalOpened) === totalMines;
+    }, [squares, openedSquares]);
+
+    useEffect(()=>{
+        if(isWin){
+            setResult(1);
+            console.log("Congratulations! You have cleared the minefield!");
+            document.getElementById('render-cta')?.classList.add('prompt-animation');
+        }
+    }, [isWin]);
+
+    function handleSquareClick(index) {
+        if(result !== -1 || openedSquares[index]) return; 
+
+        setOpenedSquares(prevOpened => {
+            const newOpened = [...prevOpened];
+            newOpened[index] = true;
+            return newOpened;
+        });
+        if(squares[index] === 1){
+            setResult(0); // Game over
+            console.log("Game Over! You clicked on a mine.");
+            setSquares(prevSquares => prevSquares.map(square => (square === 1 ? 1 : square)));
+            document.getElementById('render-cta')?.classList.add('prompt-animation');
+        } else {
+            console.log("Safe! No mine here.");
+        }
+    }
     function handleDifficultyChange(event) {
         const newDifficulty = parseInt(event.target.value, 10);
         selectedDifficultyRef.current = newDifficulty;
     }
 
     function renderBoard() {
+        setResult(-1); // Reset game result
+        setOpenedSquares([]); // Reset opened squares
         const newDifficulty = selectedDifficultyRef.current;
         setDifficulty(newDifficulty);
         const size = newDifficulty * newDifficulty;
@@ -69,6 +96,7 @@ export default function Minesweeper(){
             }
         }
         setSquares(newSquares);
+        document.getElementById('render-cta')?.classList.remove('prompt-animation');
     }
 
     const boardStyle = {
@@ -80,7 +108,7 @@ export default function Minesweeper(){
     }, []);
 
     return (
-        <GameContext.Provider value={{ result, setResult }}>
+        <GameContext.Provider value={{ result }}>
         <header className='header'>
         <h1>Minesweeper game</h1>
         <p>
@@ -89,7 +117,7 @@ export default function Minesweeper(){
         </header>
         <div className="game">
             <div className="game-controls">
-                <button onClick={renderBoard}>New Game</button>
+                <button id="render-cta" onClick={renderBoard}>New Game</button>
                 <label>Difficulty: &nbsp;
                     <select id='difficulty' defaultValue={difficulty} onChange={handleDifficultyChange}>
                         <option value={8}>Easy</option>
@@ -101,13 +129,13 @@ export default function Minesweeper(){
             <div className="game-board">
                 <div className='grid' style={boardStyle}>
                     {squares.map((square, i) => (
-                        <Square key={i} isMine={square} />
+                        <Square key={i} isMine={square} isOpened={openedSquares[i]} onSquareClick={() => handleSquareClick(i)}/>
                     ))}
                 </div>
                 {result!==-1 && (<ResultMessage />)}
             </div>
         </div>
-        <Footer />
+        <Footer style={{position: 'relative'}}/>
         </GameContext.Provider>
     );
 }
