@@ -7,25 +7,34 @@ import './Footer.css';
 const Footer = () => {
     const { contact } = resumeData.about;
     return (
-        <div className="contact-info" >
-            <div>
-                <SiGmail color="#EA4335" />
-                <a href={`mailto:${contact.email}`} target='_blank' rel="noopener noreferrer">{contact.email}</a>
+        <footer className='footer'>
+            <p>Developed by Arvind &nbsp;|&nbsp; 
+                <a href="https://arvind2221994.github.io/">Portfolio</a>
+            </p>
+            <div className="contact-info" >
+                <div>
+                    <a href={`mailto:${contact.email}`} target='_blank' rel="noopener noreferrer" style={{fontSize:'1.5rem'}}>
+                        <SiGmail color="#ec1d0a" backgroundColor="#fff" />
+                    </a>
+                </div>
+                <div>
+                    <a href={`https://www.google.com/maps/search/?api=1&query=${contact.location}`} target='_blank' rel="noopener noreferrer" style={{fontSize:'1.5rem'}}>
+                        <MdLocationPin color="#44960d" />
+                    </a>
+                </div>
+                <div>       
+                    <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" style={{fontSize:'1.5rem'}}>
+                        <SiLinkedin color="#0e65f0"/>
+                    </a>
+                </div>
+                <div>
+                    <a href={contact.github} target="_blank" rel="noopener noreferrer" style={{fontSize:'1.5rem'}}>
+                        <SiGithub color="#24292F" />
+                    </a>
+                </div>
+                
             </div>
-            <div>
-                <MdLocationPin color="#4285F4" />
-            <a href={`https://www.google.com/maps/search/?api=1&query=${contact.location}`} target='_blank' rel="noopener noreferrer">{contact.location}</a>
-            </div>
-            <div>       
-                <SiLinkedin color="#0077B5"/>
-                <a href={contact.linkedin} target="_blank" rel="noopener noreferrer">{contact.linkedin}</a>
-            </div>
-            <div>
-                <SiGithub color="#24292F" />
-                <a href={contact.github} target="_blank" rel="noopener noreferrer">{contact.github}</a>
-            </div>
-            
-        </div>
+        </footer>
     );
 };
 

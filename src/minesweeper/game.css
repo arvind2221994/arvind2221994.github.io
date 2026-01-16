@@ -1,4 +1,3 @@
-@import '../variables.css';
 .header {
   display: flex;
   flex-direction: column; /* Stack H1 and P vertically */
@@ -18,42 +17,23 @@
   max-width: 600px;       /* Prevents the text from being too wide on desktop */
   line-height: 1.5;       /* Improves readability on small screens */
 }
-.game-board{
-    gap:0.5rem;
-    display:grid;
+.game{
+    display:block;
     align-items: center;
     justify-content: center;
-    flex-direction: column; 
 }
-.board-row{
+.game-controls {
     display: flex;
-    gap:0.5rem;
-}
-.tictacsquare{
-    width: 6rem;
-    height: 6rem;
-    background-color: var(--bg-light);
-    border: 2px solid var(--border-dark);
-    color: var(--text-dark-blue);
-    font-size: 3.5rem;
-    cursor: pointer;
-    font-family: 'Times New Roman', Times, serif;
-    transition: background-color 0.3s ease;
-}
-.status{
-    display:flex;
+    gap: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    flex-direction: column;
-    margin-bottom: 2rem;
-    gap:0.5rem;
-    font-size: 1.5rem;
-    color: var(--text-dark);
-    font-weight: 500;
-    font-family:'Times New Roman', Times, serif;
+    flex-direction: row;
+    text-align: center; 
 }
-.status button{
+
+.game-controls button{
     padding:1rem;
     font-size: 1.2rem;
     cursor: pointer;
@@ -61,4 +41,34 @@
     color: var(--text-dark);
     text-transform: uppercase;
     border: none;
+}
+.game-controls select{
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    font-family:'Times New Roman', Times, serif;
+    cursor: pointer;
+    border: 2px solid var(--border-dark);
+    background-color: var(--bg-light);
+    color: var(--text-blue);
+    font-weight: 700;
+}
+.game-board{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap:0.5rem;
+
+}
+.square{
+    width:0.5rem;
+    height:0.5rem;
+    padding:0.5rem;
+    margin:0.2rem;
+
+}
+.grid{
+    display:grid;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
 }

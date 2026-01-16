@@ -1,5 +1,6 @@
 .guiBody{
     padding: 20px;
+    padding-bottom:0;
     transition: margin-left 0.3s ease;
 } 
 .guiBody h2{

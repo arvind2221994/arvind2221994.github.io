@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Confetti from 'react-confetti';
 import './TicTacToe.css';
+import Footer from '../Footer';
 
 function Square({value,onSquareClick}) {
-  return <button className="square" onClick={onSquareClick}>{value}</button>;
+  return <button className="tictacsquare" onClick={onSquareClick}>{value}</button>;
 }
 
 export default function TicTacToe() {
@@ -108,11 +109,7 @@ export default function TicTacToe() {
         </div>
       </div>
     </div>
-    <footer className="footer">
-      <p>Developed by Arvind &nbsp;|&nbsp; 
-      <a href="https://arvind2221994.github.io/">Portfolio</a>
-      </p>
-    </footer>
+    <Footer />
     </>
   );
 }

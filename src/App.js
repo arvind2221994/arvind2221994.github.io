@@ -5,12 +5,13 @@ import GuiBody from './GuiBody';
 import TerminalUI from './TerminalUI';
 import Footer from './Footer';
 import TicTacToe from './tictactoe/TicTacToe';
+import Minesweeper from './minesweeper/game';
 
 const Home = () => {
   const [mode, setMode] = useState('GUI');
 
   return (
-    <div>
+    <>
       <nav className="topNav">
         <div>
           <h1>Arvind Narayanan</h1>
@@ -34,11 +35,11 @@ const Home = () => {
           </button>
         </div>
       </nav>
-      <div>
+      <>
          {mode === 'Terminal' ? <TerminalUI /> : <GuiBody />}
-      </div>
+      </>
       <Footer />
-    </div>
+    </>
   );
 };
 
@@ -48,6 +49,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tictactoe" element={<TicTacToe />} />
+        <Route path="/minesweeper" element={<Minesweeper />} />
       </Routes>
     </Router>
   );
