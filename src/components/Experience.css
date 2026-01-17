@@ -1,11 +1,22 @@
 @import '../variables.css';
 
+#experience{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#experience h2{
+  color: var(--text-white);
+  font-size: 2rem;
+  font-family: var(--font-primary);
+  margin-bottom: 1rem;
+}
 .timeline-container {
   position: relative;
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 20px 0;
 }
 
 .timeline-container::after {
@@ -26,7 +37,7 @@
 }
 
 .timeline-item-container.left {
-  left: 0;
+  left: -75px;
 }
 
 .timeline-item-container.right {
@@ -64,7 +75,7 @@
 .timeline-date {
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--text-dark-blue);
   margin-bottom: 8px;
 }
 
@@ -80,6 +91,7 @@
   font-weight: 500;
   color: var(--text-light);
   margin-bottom: 15px;
+  margin-top: 0px;
 }
 
 .read-more-btn {
@@ -135,19 +147,27 @@
 }
 
 @media screen and (max-width: 768px) {
+  #experience{
+    padding: 0;
+  }
+  .timeline-card{
+    padding:0;
+  }
   .timeline-container::after {
-    left: 20px;
+    display:none;
   }
   .timeline-item-container {
     width: 100%;
-    padding-left: 50px;
-    padding-right: 10px;
+  }
+  .timeline-date{
+    display:none;
   }
   .timeline-item-container.left, .timeline-item-container.right {
     left: 0;
+    padding-left:0;
   }
   .timeline-item-container.left::after, .timeline-item-container.right::after {
-    left: 12px;
+    display:none;
   }
 }
 
@@ -175,20 +195,6 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .timeline-item {
-    padding-left: 40px;
-  }
   
-  .timeline-dot {
-    width: 16px;
-    height: 16px;
-  }
   
-  .timeline-line {
-    left: 7px;
-  }
-  
-  .timeline-card {
-    padding: 15px;
-  }
 }
