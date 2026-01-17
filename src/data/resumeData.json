@@ -68,16 +68,14 @@
   ],
   "education": [
     {
-      "degree": "Master of Science in Computer Science",
-      "institution": "University Name",
-      "duration": "2018 - 2020",
-      "details": "Focus on Software Engineering and Machine Learning"
+      "degree": "Master of Technology in Product Design",
+      "institution": "IIT Madras",
+      "duration": "2015 - 2016"
     },
     {
-      "degree": "Bachelor of Science in Computer Science",
-      "institution": "University Name",
-      "duration": "2014 - 2018",
-      "details": "GPA: 3.8/4.0"
+      "degree": "Bachelor of Technology in Mechanical Engineering",
+      "institution": "IIT Madras",
+      "duration": "2011 - 2015"
     }
   ],
   "skills": [
@@ -100,12 +98,9 @@
     {
       "category": "Generative AI",
       "skills": ["Copilot", "Gemini", "Model Context Protocol (MCP)", "Agentic AI", "Prompt Engineering", "BMAD"]
-    },
-    {
-      "category": "Certifications & Courses",
-      "skills": ["Github Copilot GH 300 Certification", "Prompt Engineering (Coursera)", "Amazon Bedrock (Amazon Workshops)", "GCP Firebase & Cloud Run (Google Cloud Skills)"]
     }
   ],
+  "certifications":[ "Github Copilot GH 300 Certification (Microsoft)", "Prompt Engineering (Coursera)", "Amazon Bedrock (Amazon Workshops)", "GCP Firebase & Cloud Run (Google Cloud Skills)"  ],
   "projects": [
     {
       "title": "Project Name 1",

@@ -17,10 +17,6 @@ const GuiBody = () => {
                 return <AboutSection />;
             case 'experience':
                 return <Experience />;
-            case 'education':
-                return <Education />;
-            case 'skills':
-                return <Skills />;
             case 'projects':
                 return <Projects />;
             default:

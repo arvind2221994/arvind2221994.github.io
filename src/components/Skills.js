@@ -19,8 +19,8 @@ const SkillCard = ({ category, skills }) => {
 
       <div className="skill-card-back" onClick={handleClick}>
         <TagCloud style={{
-          fontFamily: 'sans-serif',
-          fontSize: 22,
+          fontFamily: 'Montserrat',
+          fontSize: 20,
           color: () => `hsl(${Math.random() * 360}, 80%, 40%)`,
           width: '100%',
           height: '100%'

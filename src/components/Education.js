@@ -15,7 +15,7 @@ const EducationItem = ({ degree, institution, duration, details }) => (
 const Education = () => {
   return (
     <section className="resume-section" id="education">
-      <h2>Education</h2>
+      <h2> 📚 Education</h2>
       {resumeData.education.map((edu, index) => (
         <EducationItem key={index} {...edu} />
       ))}

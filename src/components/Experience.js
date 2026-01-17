@@ -1,43 +1,71 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from 'react-modal';
 import resumeData from '../data/resumeData.json';
 import './Experience.css';
 
-const ExperienceItem = ({ title, company, duration, description, achievements, isLast }) => (
-  <div className="timeline-item">
-    <div className="timeline-dot"></div>
-    {!isLast && <div className="timeline-line"></div>}
-    
-    <div className="timeline-content">
-      <div className="timeline-date">{duration}</div>
+Modal.setAppElement('#root');
+
+const ExperienceItem = ({ experience, onReadMore, side }) => (
+  <div className={`timeline-item-container ${side}`}>
+    <div className="timeline-item-content">
+      <div className="timeline-date">{experience.duration}</div>
       <div className="timeline-card">
-        <h3 className="timeline-title">{title}</h3>
-        <h4 className="timeline-company">{company}</h4>
-        <p className="timeline-description">{description}</p>
-        {achievements && achievements.length > 0 && (
-          <ul className="timeline-achievements">
-            {achievements.map((achievement, index) => (
-              <li key={index}>{achievement}</li>
-            ))}
-          </ul>
-        )}
+        <h3 className="timeline-title">{experience.title}</h3>
+        <h4 className="timeline-company">{experience.company}</h4>
+        <button onClick={() => onReadMore(experience)} className="read-more-btn">
+          Read More
+        </button>
       </div>
     </div>
   </div>
 );
 
 const Experience = () => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [selectedExperience, setSelectedExperience] = useState(null);
+
+  const openModal = (experience) => {
+    setSelectedExperience(experience);
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+    setSelectedExperience(null);
+  };
+
   return (
     <section className="resume-section" id="experience">
+      <h2>Work Experience</h2>
       <div className="timeline-container">
-        <h2>Work Experience</h2>
         {resumeData.experience.map((exp, index) => (
           <ExperienceItem 
             key={index} 
-            {...exp} 
-            isLast={index === resumeData.experience.length - 1}
+            experience={exp}
+            onReadMore={openModal}
+            side={index % 2 === 0 ? 'left' : 'right'}
           />
         ))}
       </div>
+
+      {selectedExperience && (
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          contentLabel="Experience Details"
+          className="modal"
+          overlayClassName="overlay"
+        >
+          <h2>{selectedExperience.title}</h2>
+          <h3>{selectedExperience.company}</h3>
+          <p>{selectedExperience.duration}</p>
+          <p>{selectedExperience.description}</p>
+          <ul>
+            {selectedExperience.achievements.map((ach, i) => <li key={i}>{ach}</li>)}
+          </ul>
+          <button onClick={closeModal}>Close</button>
+        </Modal>
+      )}
     </section>
   );
 };
