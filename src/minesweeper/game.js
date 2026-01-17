@@ -112,7 +112,7 @@ export default function Minesweeper(){
         <header className='header'>
         <h1>Minesweeper game</h1>
         <p>
-            This is a simple Minesweeper game built with React. Click on a square to make your move. The game will automatically detect wins and draws. Enjoy playing!
+            This is a simple Minesweeper game built with React. Click on a square to reveal it. If you click on a mine, you lose. Clear all the squares without mines to win. Enjoy playing!
         </p>
         </header>
         <div className="game">
@@ -127,12 +127,12 @@ export default function Minesweeper(){
                 </label>
             </div>
             <div className="game-board">
+                {result!==-1 && (<ResultMessage />)}
                 <div className='grid' style={boardStyle}>
                     {squares.map((square, i) => (
                         <Square key={i} isMine={square} isOpened={openedSquares[i]} onSquareClick={() => handleSquareClick(i)}/>
                     ))}
                 </div>
-                {result!==-1 && (<ResultMessage />)}
             </div>
         </div>
         <Footer style={{position: 'relative'}}/>

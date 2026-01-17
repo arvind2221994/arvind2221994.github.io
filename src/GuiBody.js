@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import './GuiBody.css';
 import AboutSection from './components/AboutSection';
 import Experience from './components/Experience';
@@ -6,10 +6,10 @@ import Education from './components/Education';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import LeftMenu from './LeftMenu';
+import MenuContext from './context/MenuContext';
 
 const GuiBody = () => {
-    const [menuWidth, setMenuWidth] = useState('4rem');
-    const [activeSection, setActiveSection] = useState('about');
+    const { menuWidth, activeSection } = useContext(MenuContext);
 
     const renderSection = () => {
         switch(activeSection) {
@@ -30,12 +30,7 @@ const GuiBody = () => {
 
     return (
         <div>
-            <LeftMenu 
-                menuWidth={menuWidth} 
-                setMenuWidth={setMenuWidth}
-                activeSection={activeSection}
-                setActiveSection={setActiveSection}
-            />
+            <LeftMenu />
             <div 
                 className='guiBody' 
                 style={{ marginLeft: menuWidth }}

@@ -1,28 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import './LeftMenu.css';
-import { GiHamburgerMenu } from "react-icons/gi";
+import MenuContext from './context/MenuContext';
 
-const LeftMenu = ({ menuWidth, setMenuWidth, activeSection, setActiveSection }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const handleToggle = () => {
-    const newExpanded = !isExpanded;
-    setIsExpanded(newExpanded);
-    setMenuWidth(newExpanded ? '15%' : '4rem');
-  };
-
-  const handleLinkClick = (section) => {
-    setActiveSection(section);
-  };
+const LeftMenu = () => {
+  const { isExpanded, menuWidth, activeSection, handleLinkClick } = useContext(MenuContext);
 
   return (
     <div className="leftmenu" style={{width: menuWidth}}>
-        <GiHamburgerMenu 
-            className="arrowButton" 
-            onClick={handleToggle}
-            style={{transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)'}}
-            aria-label={isExpanded ? 'Collapse menu' : 'Expand menu'}
-        />
       {isExpanded && (
         <div className="linksContainer" style={{opacity: isExpanded ? 1 : 0}}>
           <a 

@@ -17,12 +17,12 @@
   max-width: 600px;       /* Prevents the text from being too wide on desktop */
   line-height: 1.5;       /* Improves readability on small screens */
 }
-.game{
+.sudoku{
     display:block;
     align-items: center;
     justify-content: center;
 }
-.game-controls {
+.sudoku-controls {
     display: flex;
     gap: 1rem;
     font-size: 1.5rem;
@@ -33,7 +33,7 @@
     text-align: center; 
 }
 
-.game-controls button{
+.sudoku-controls button{
     padding:1rem;
     font-size: 1.2rem;
     cursor: pointer;
@@ -42,7 +42,7 @@
     text-transform: uppercase;
     border: none;
 }
-.game-controls select{
+.sudoku-controls select{
     padding: 0.3rem;
     font-size: 1.2rem;
     font-family:var(--font-terminal);
@@ -52,26 +52,24 @@
     color: var(--text-black);
     font-weight: 700;
 }
-.game-board{
+.sudoku-board{
     display:flex;
     align-items: center;
     justify-content: center;
     gap:0.5rem;
     flex-direction: column;
 }
-.square{
-    width:0.5rem;
-    height:0.5rem;
-    padding:0.7rem;
-    margin:0.05rem;
+.cell{
+    width:1.2rem;
+    height:1.2rem;
+    padding:1.5rem;
     background-color: var(--bg-light);
 }
-.opened{
+.cell .white{
     background-color: var(--bg-white);
 }
-.goodbye{
-    border-color: var(--bg-red);
-    background-color: #e9acac;
+.cell .grey{
+    background-color: var(--bg-light);
 }
 .grid{
     display:grid;
@@ -115,4 +113,24 @@
         transform: scale(1);
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
     }
+}
+
+.cell.c2, .cell.c5 {
+    border-right: 3px solid var(--border-dark);
+}
+
+.cell.r2, .cell.r5 {
+    border-bottom: 3px solid var(--border-dark);
+}
+
+/* Hide arrows from number input */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  font-size: 2rem;
 }
