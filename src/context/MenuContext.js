@@ -20,6 +20,7 @@ export const MenuProvider = ({ children }) => {
   };
 
   const handleLinkClick = (section) => {
+    handleToggle();
     setActiveSection(section);
   };
 
