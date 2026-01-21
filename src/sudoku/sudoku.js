@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect, useCallback, use } from 'react';
 import './sudoku.css';
 import Confetti from 'react-confetti';
-import Footer from '../Footer';
+import Footer from '../footer/Footer';
 import { FaUndo } from "react-icons/fa";
 import { TbDeviceGamepad2 } from "react-icons/tb";
+import Header from '../header';
 
 const numRegex = /^[1-9]$/;
 
@@ -132,7 +133,7 @@ function initSudoku(size=9, clues) {
 export default function Sudoku(){
     const [size, setSize] = useState(9);
     const [showDifficultyMenu, setShowDifficultyMenu] = useState(true);
-    const [difficulty, setDifficulty] = useState(null);
+    const [difficulty, setDifficulty] = useState(35);
     const [gameId, setGameId] = useState(1);
     
     const [squares, setSquares] = useState(() => initSudoku(size, difficulty));
@@ -172,6 +173,7 @@ export default function Sudoku(){
 
     return (
         <>
+        <Header name="Sudoku" tagline="" />
             {isWin() && <Confetti
                 recycle={false}
                 numberOfPieces={500}
@@ -186,7 +188,6 @@ export default function Sudoku(){
                 tweenDuration={3000}
             />}
         <header className='sudoku-header'>
-            <h1>Sudoku game</h1>
             <p>
                 This is a simple Sudoku game built with React. Write your solution in the grid. Enjoy playing!
             </p>
@@ -221,7 +222,7 @@ export default function Sudoku(){
                     </div>
                 </div>
             )}
-            <div class="cta">
+            <div className="cta">
                 {!showDifficultyMenu && (<button id="undo-cta" /* onClick={undoStep} */>
                 <FaUndo /> Undo</button>)}
             </div>

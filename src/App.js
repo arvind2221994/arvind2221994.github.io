@@ -1,12 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, Suspense, lazy } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import GuiBody from './GuiBody';
 import TerminalUI from './TerminalUI';
-import Footer from './Footer';
-import TicTacToe from './tictactoe/TicTacToe';
-import Minesweeper from './minesweeper/game';
-import Sudoku from './sudoku/sudoku';
+import Footer from './footer/Footer';
+const TicTacToe = lazy(() => import('./tictactoe/TicTacToe'));
+const Minesweeper = lazy(() => import('./minesweeper/game'));
+const Sudoku = lazy(() => import('./sudoku/sudoku'));
 import { MenuProvider, default as MenuContext } from './context/MenuContext';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { isMobileDevice } from './utility/helpers';
@@ -56,12 +56,14 @@ const Home = () => {
 const App = () => {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<MenuProvider><Home /></MenuProvider>} />
-        <Route path="/tictactoe" element={<TicTacToe />} />
-        <Route path="/minesweeper" element={<Minesweeper />} />
-        <Route path="/sudoku" element={<Sudoku />} />
-      </Routes>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<MenuProvider><Home /></MenuProvider>} />
+          <Route path="/tictactoe" element={<TicTacToe />} />
+          <Route path="/minesweeper" element={<Minesweeper />} />
+          <Route path="/sudoku" element={<MenuProvider><Sudoku /></MenuProvider>} />
+        </Routes>
+      </Suspense>
     </Router>
   );
 };

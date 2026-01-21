@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import resumeData from './data/resumeData.json';
+import resumeData from '../data/resumeData.json';
 import { SiGmail,SiLinkedin,SiGithub } from "react-icons/si";
 import { MdLocationPin } from "react-icons/md";
 import './Footer.css';

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Confetti from 'react-confetti';
 import './TicTacToe.css';
-import Footer from '../Footer';
+import Footer from '../footer/Footer';
 
 function Square({value,onSquareClick}) {
   return <button className="tictacsquare" onClick={onSquareClick}>{value}</button>;

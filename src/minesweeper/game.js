@@ -1,6 +1,6 @@
 import React, { useState, useRef, createContext, useContext, useEffect, useMemo } from 'react';
 import './game.css';
-import Footer from '../Footer';
+import Footer from '../footer/Footer';
 
 const GameContext = createContext();
 
