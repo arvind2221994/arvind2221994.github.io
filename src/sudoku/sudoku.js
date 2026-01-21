@@ -1,7 +1,9 @@
-import React, { useState, useRef, useEffect, useMemo, useCallback, use } from 'react';
+import React, { useState, useRef, useEffect, useCallback, use } from 'react';
 import './sudoku.css';
 import Confetti from 'react-confetti';
 import Footer from '../Footer';
+import { FaUndo } from "react-icons/fa";
+import { TbDeviceGamepad2 } from "react-icons/tb";
 
 const numRegex = /^[1-9]$/;
 
@@ -56,25 +58,6 @@ function Square({ isVisible, value, row, col }) {
         />
     );
 }
-
-/* function ResultMessage() {
-    const { result } = useContext(GameContext);
-    
-    if (result === -1) return null; // Don't render anything if game is ongoing
-
-    return (
-        <div className='message'>
-            {result===1 && (<div className='success'>
-                Congratulations! You have cleared the minefield!
-            </div>)}
-            {result===0 && (<div className='failure'>
-                Game Over! You clicked on a mine.
-            </div>)}
-        </div>
-    );
-}
- */
-
 
 function initSudoku(size=9, clues) {
     const board = Array.from({ length: size }, () => Array(size).fill(0));
@@ -148,8 +131,8 @@ function initSudoku(size=9, clues) {
 
 export default function Sudoku(){
     const [size, setSize] = useState(9);
-    const [showDifficultyMenu, setShowDifficultyMenu] = useState(false);
-    const [difficulty, setDifficulty] = useState(25);
+    const [showDifficultyMenu, setShowDifficultyMenu] = useState(true);
+    const [difficulty, setDifficulty] = useState(null);
     const [gameId, setGameId] = useState(1);
     
     const [squares, setSquares] = useState(() => initSudoku(size, difficulty));
@@ -202,29 +185,32 @@ export default function Sudoku(){
                 }}
                 tweenDuration={3000}
             />}
-        <header className='header'>
-        <h1>Sudoku game</h1>
-        <p>
-            This is a simple Sudoku game built with React. Write your solution in the grid. Enjoy playing!
-        </p>
+        <header className='sudoku-header'>
+            <h1>Sudoku game</h1>
+            <p>
+                This is a simple Sudoku game built with React. Write your solution in the grid. Enjoy playing!
+            </p>
         </header>
         <div className="sudoku">
             <div className="sudoku-controls">
-                {!showDifficultyMenu && <button id="new-cta" onClick={() => setShowDifficultyMenu(true)} >New Game</button>}
+                {!showDifficultyMenu && <button id="new-cta" onClick={() => setShowDifficultyMenu(true)} >
+                    <TbDeviceGamepad2 /> New Game</button>}
                 {showDifficultyMenu && (
                     <>
                     <div className="difficulty-menu">
                         <label>Select Difficulty:</label>
-                        <button className={difficulty === 35 ? 'selected' : ''} onClick={() => setDifficulty(35)}>Easy</button>
-                        <button className={difficulty === 25 ? 'selected' : ''} onClick={() => setDifficulty(25)}>Medium</button>
-                        <button className={difficulty === 17 ? 'selected' : ''} onClick={() => setDifficulty(17)}>Hard</button>
+                        <div className="difficulty-buttons">
+                            <button className={difficulty === 35 ? 'selected' : ''} onClick={() => setDifficulty(35)}>Easy</button>
+                            <button className={difficulty === 25 ? 'selected' : ''} onClick={() => setDifficulty(25)}>Medium</button>
+                            <button className={difficulty === 17 ? 'selected' : ''} onClick={() => setDifficulty(17)}>Hard</button>
+                        </div>
                     </div>
                     <div>
-                        <button onClick={() => startNewGame(difficulty)}>Start game</button>
+                        <button onClick={() => startNewGame(difficulty)}> <TbDeviceGamepad2 /> Start game</button>
                     </div>
                     </>
                 )}
-                {!showDifficultyMenu && (<button id="undo-cta" /* onClick={undoStep} */>Undo</button>)}
+                
             </div>
             {!showDifficultyMenu && (
                 <div className="sudoku-board">
@@ -235,7 +221,10 @@ export default function Sudoku(){
                     </div>
                 </div>
             )}
-            
+            <div class="cta">
+                {!showDifficultyMenu && (<button id="undo-cta" /* onClick={undoStep} */>
+                <FaUndo /> Undo</button>)}
+            </div>
         </div>
         <Footer style={{position: 'relative'}}/>
         </>
