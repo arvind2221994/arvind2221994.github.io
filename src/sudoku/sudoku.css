@@ -41,17 +41,24 @@
     color: var(--text-white);
     text-transform: uppercase;
     border: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
-.sudoku-controls select{
-    padding: 0.3rem;
-    font-size: 1.2rem;
-    font-family:var(--font-terminal);
-    cursor: pointer;
-    border: 2px solid var(--border-dark);
-    background-color: var(--bg-light);
+.difficulty-menu label{
+    font-size: 1.8rem;
+    font-family:var(--font-primary);
     color: var(--text-black);
-    font-weight: 700;
+    font-weight: 600;
+    margin-right: 0.5rem;
 }
+.difficulty-menu button {
+    background-color: var(--bg-light);
+    color: var(--bg-dark);
+}
+.difficulty-menu button.selected{
+    background-color: var(--bg-dark-blue);
+    color: var(--text-white);
+}
+
 .sudoku-board{
     display:flex;
     align-items: center;
@@ -65,11 +72,16 @@
     padding:1.5rem;
     background-color: var(--bg-light);
 }
-.cell .white{
+.white{
     background-color: var(--bg-white);
 }
-.cell .grey{
+.grey{
     background-color: var(--bg-light);
+}
+.incorrect{
+    background-color: var(--bg-incorrect);
+    color: var(--text-red);
+    font-weight: 700;
 }
 .grid{
     display:grid;

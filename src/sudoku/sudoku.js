@@ -1,26 +1,60 @@
-import React, { useState, useRef, createContext, useContext, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useRef, useEffect, useMemo, useCallback, use } from 'react';
 import './sudoku.css';
+import Confetti from 'react-confetti';
 import Footer from '../Footer';
 
 const numRegex = /^[1-9]$/;
-const GameContext = createContext();
 
-function Square({ isVisible, row, col }) {
-    //const { result } = useContext(GameContext);
-    const className = `cell r${row} c${col} ${isVisible ? 'grey': 'white'}`;
+function Square({ isVisible, value, row, col }) {
+    const [inputValue, setInputValue] = useState(isVisible ? value : '');
+    const valRef = useRef(value);
+    useEffect(() => {
+        setInputValue(isVisible ? value : '');
+        valRef.current = value;
+    }, [isVisible, value]);
+
+    const className = `cell r${row} c${col} ${isVisible ? 'grey' : 'white'}`;
+    
     const handleKeyDown = useCallback((e) => {
-        // Block any key that isn't a digit from 1-9
-        if (!numRegex.test(e.key)) {
+        if (!numRegex.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete' && !e.ctrlKey && !e.metaKey) {
             e.preventDefault();
         }
     }, []);
-    const inputFn = useCallback((e) => {
-        numRegex.test(e.target.value) ? e.target.value = e.target.value : '';
-    }, []);
 
-  return (
-    <input id={`r${row}-c${col}`} className={className} disabled={isVisible} type="number" min="1" max="9" onKeyDown={handleKeyDown} onChange={inputFn}></input>
-  );
+    const verifyEntry = useCallback((target) => {
+        const elem = target;
+        const entry = elem.value;
+        if (entry === '') return true;
+        const correctValue = valRef.current;
+        if (Number(entry) !== correctValue) {
+            elem.classList.add('incorrect');
+            return false;
+        } else {
+            elem.classList.remove('incorrect');
+        }
+        return true;
+    }, [valRef]);
+
+    const handleChange = useCallback((e) => {
+        const entry = e.target.value;
+        if (numRegex.test(entry) || entry === '') {
+            setInputValue(entry);
+        }
+        verifyEntry(e.target);
+    }, [verifyEntry]);
+
+    return (
+        <input 
+            id={`r${row}-c${col}`} 
+            className={className} 
+            value={inputValue} 
+            disabled={isVisible} 
+            type="number" 
+            maxLength="1"
+            onKeyDown={handleKeyDown} 
+            onChange={handleChange}
+        />
+    );
 }
 
 /* function ResultMessage() {
@@ -40,53 +74,134 @@ function Square({ isVisible, row, col }) {
     );
 }
  */
-export default function Sudoku(){
-    const [size, setSize] = useState(9);
-    const selectedSizeRef = useRef(size);
-    const [squares, setSquares] = useState(Array(size * size).fill(null).map(() => Math.floor(Math.random() * 9) + 1));
-    const [visibleSquares, setVisibleSquares] = useState(-1);
 
-    const isWin = useMemo(()=>{
-        // Check if all guesses are correct
-        if(!squares.length) return false;
-    }, [squares]);
 
-    useEffect(()=>{
-        if(isWin){
-            console.log("Congratulations! You have completed the grid!");
-            document.getElementById('new-cta')?.classList.add('prompt-animation');
-        }
-    }, [isWin]);
+function initSudoku(size=9, clues) {
+    const board = Array.from({ length: size }, () => Array(size).fill(0));
 
-    function handleSquareClick(index) {
-        
-    }
-/* 
-    function renderBoard() {
-        setResult(-1); // Reset game result
-        const newSize = selectedSizeRef.current;
-        setSize(newSize);
-        const size = newSize * newSize;
-        const numMines = Math.floor(size/5);
-        const newSquares = Array(size).fill(0);
-        let minesPlaced = 0;
-        while (minesPlaced < numMines) {
-            const randomIndex = Math.floor(Math.random() * size);
-            if (newSquares[randomIndex] === 0) {
-                newSquares[randomIndex] = 1; // 1 represents a mine
-                minesPlaced++;
+    // Fills the grid using a backtracking algorithm
+    function solve(grid) {
+        for (let i = 0; i < size; i++) {
+            for (let j = 0; j < size; j++) {
+                if (grid[i][j] === 0) {
+                    const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9].sort(() => Math.random() - 0.5);
+                    for (let num of nums) {
+                        if (isSafe(grid, i, j, num)) {
+                            grid[i][j] = num;
+                            if (solve(grid)) {
+                                return true;
+                            }
+                            grid[i][j] = 0; // Backtrack
+                        }
+                    }
+                    return false;
+                }
             }
         }
-        setSquares(newSquares);
+        return true;
+    }
+
+    // Checks if a number can be placed in a given cell
+    function isSafe(grid, row, col, num) {
+        // Check row
+        for (let x = 0; x < size; x++) {
+            if (grid[row][x] === num) {
+                return false;
+            }
+        }
+        // Check column
+        for (let x = 0; x < size; x++) {
+            if (grid[x][col] === num) {
+                return false;
+            }
+        }
+        // Check 3x3 subgrid
+        const startRow = row - (row % 3);
+        const startCol = col - (col % 3);
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (grid[i + startRow][j + startCol] === num) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    solve(board);
+
+    // Flatten the 2D board into a 1D array of square objects
+    const squares = board.flat().map(val => ({ value: val, isVisible: false }));
+
+    // Make {clues} cells visible
+    let count = 0;
+    while (count < clues) {
+        const index = Math.floor(Math.random() * squares.length);
+        if (!squares[index].isVisible) {
+            squares[index].isVisible = true;
+            count++;
+        }
+    }
+
+    return squares;
+}
+
+export default function Sudoku(){
+    const [size, setSize] = useState(9);
+    const [showDifficultyMenu, setShowDifficultyMenu] = useState(false);
+    const [difficulty, setDifficulty] = useState(25);
+    const [gameId, setGameId] = useState(1);
+    
+    const [squares, setSquares] = useState(() => initSudoku(size, difficulty));
+
+    const isWin = function() {
+        const incorrectCells = document.getElementsByClassName('incorrect');
+        if(incorrectCells.length > 0){
+            return false;
+        }
+        const cells = document.getElementsByClassName('cell');
+        if(!cells || cells.length===0) return false;
+        for(let i=0;i<cells.length;i++){
+            if(cells[i].value === ''){
+                return false;
+            }
+            if(Number(cells[i].value) !== squares[i].value){
+                return false;
+            }
+        }
+        return true;
+    };
+
+    function startNewGame(clues) {
+        setShowDifficultyMenu(false);
+        setTimeout(() => {
+            setGameId(prevId => prevId + 1);
+            setSquares(initSudoku(size, clues));
+        }, 300);
         document.getElementById('new-cta')?.classList.remove('prompt-animation');
     }
 
     useEffect(() => {
-        renderBoard();
-    }, []); */
+        if (isWin()) {
+            document.getElementById('new-cta')?.classList.add('prompt-animation');
+        }
+    }, [squares]);
 
     return (
-        <GameContext.Provider>
+        <>
+            {isWin() && <Confetti
+                recycle={false}
+                numberOfPieces={500}
+                gravity={0.3}
+                initialVelocityY={30}
+                confettiSource={{
+                    x: 0,
+                    y: window.innerHeight,
+                    w: window.innerWidth,
+                    h: 0
+                }}
+                tweenDuration={3000}
+            />}
         <header className='header'>
         <h1>Sudoku game</h1>
         <p>
@@ -95,18 +210,34 @@ export default function Sudoku(){
         </header>
         <div className="sudoku">
             <div className="sudoku-controls">
-                <button id="new-cta" /* onClick={renderBoard} */>New Game</button>
-                <button id="undo-cta" /* onClick={undoStep} */>Undo</button>
+                {!showDifficultyMenu && <button id="new-cta" onClick={() => setShowDifficultyMenu(true)} >New Game</button>}
+                {showDifficultyMenu && (
+                    <>
+                    <div className="difficulty-menu">
+                        <label>Select Difficulty:</label>
+                        <button className={difficulty === 35 ? 'selected' : ''} onClick={() => setDifficulty(35)}>Easy</button>
+                        <button className={difficulty === 25 ? 'selected' : ''} onClick={() => setDifficulty(25)}>Medium</button>
+                        <button className={difficulty === 17 ? 'selected' : ''} onClick={() => setDifficulty(17)}>Hard</button>
+                    </div>
+                    <div>
+                        <button onClick={() => startNewGame(difficulty)}>Start game</button>
+                    </div>
+                    </>
+                )}
+                {!showDifficultyMenu && (<button id="undo-cta" /* onClick={undoStep} */>Undo</button>)}
             </div>
-            <div className="sudoku-board">
-                <div className='grid' style={{gridTemplateColumns: `repeat(9, 1fr)`}}>
-                    {squares.map((square, i) => (
-                        <Square key={i} isVisible={square} row={Math.floor(i/9)} col={i%9} />
-                    ))}
+            {!showDifficultyMenu && (
+                <div className="sudoku-board">
+                    <div className='grid' style={{gridTemplateColumns: `repeat(9, 1fr)`}}>
+                        {squares.map((square, i) => (
+                            <Square key={`${gameId}-${i}`} isVisible={square.isVisible} value={square.value} row={Math.floor(i/9)} col={i%9} />
+                        ))}
+                    </div>
                 </div>
-            </div>
+            )}
+            
         </div>
         <Footer style={{position: 'relative'}}/>
-        </GameContext.Provider>
+        </>
     );
 }
