@@ -5,12 +5,12 @@ import Skills from './Skills';
 import Education from './Education';
 
 const AboutSection = () => {
-  const { summary } = resumeData.about;
+  const { summaryHTML } = resumeData.about;
   // add icons for certifications 
   return (
     <section className="resume-section" id="about">
       <h2>{resumeData.about.title}</h2>
-      <div dangerouslySetInnerHTML={{__html: summary}} />
+      <div dangerouslySetInnerHTML={{__html: summaryHTML}} />
       <Skills />
       <h2>🎖️ Certifications & Courses</h2> 
       <ul className="certifications-list">

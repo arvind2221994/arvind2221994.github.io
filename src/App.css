@@ -76,7 +76,7 @@ button {
   color: var(--primary-color);
 }
 
-h1 {
+/* h1 {
   font-family: var(--font-primary);
   font-size: 3rem;
   background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
@@ -85,7 +85,7 @@ h1 {
   -webkit-text-fill-color: transparent;
   font-weight: 800;
   margin: 0 ;
-}
+} */
 
 @media (max-width: 768px) {
     #headerH1 {

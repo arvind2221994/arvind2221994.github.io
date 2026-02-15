@@ -7,6 +7,7 @@ import Footer from './footer/Footer';
 const TicTacToe = lazy(() => import('./tictactoe/TicTacToe'));
 const Minesweeper = lazy(() => import('./minesweeper/game'));
 const Sudoku = lazy(() => import('./sudoku/sudoku'));
+const TitleCard = lazy(() => import('./reusables/TitleCard'));
 import { MenuProvider, default as MenuContext } from './context/MenuContext';
 import { GiHamburgerMenu } from "react-icons/gi";
 import { isMobileDevice } from './utility/helpers';
@@ -62,6 +63,7 @@ const App = () => {
           <Route path="/tictactoe" element={<TicTacToe />} />
           <Route path="/minesweeper" element={<Minesweeper />} />
           <Route path="/sudoku" element={<MenuProvider><Sudoku /></MenuProvider>} />
+          <Route path="/titlecard" element={<TitleCard />} />
         </Routes>
       </Suspense>
     </Router>
