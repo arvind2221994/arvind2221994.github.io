@@ -22,11 +22,12 @@
   --bg-dark-blue: #062b55;
   --bg-red: #ff4c4c;
   --bg-incorrect: #f3b7b7;
+  --bg-main: rgb(68, 60, 60);
   
   /* Border Colors */
   --border-light: #ddd;
   --border-dark: #333;
-  --border-blue: #1a7beb;
+  --border-yellow: #967315;
   
   /* Gradient Colors */
   --gradient-start: #2797e2;

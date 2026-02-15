@@ -4,18 +4,20 @@
     font-family: 'Inter', sans-serif;
     margin-bottom: 40px;
     padding: 20px;
-    background: var(--bg-white);
-    border-radius: 8px;
+    background: var(--bg-main);
+    color: var(--text-light);
+    border-radius: 10px;
     box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+    font-weight: 400;
 }
 #about h2{
     font-family: 'Montserrat', sans-serif;
-    color: var(--text-blue);
-    border-bottom: 2px solid var(--border-blue);
+    color: var(--text-white);
+    border-bottom: 5px solid var(--border-yellow);
+    border-radius: 5px;
     padding-bottom: 10px;
     margin-bottom: 20px;
 }
-
 .certifications-list {
     list-style-type: none;
     margin-top: 5px;
