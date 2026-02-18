@@ -6,6 +6,7 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 import FormHandler from './components/FormHandler';
 import { useMenu } from './context/MenuContext';
+import Skills from './components/Skills';
 
 const HomePage = () => {
   const { activeSection } = useMenu();
@@ -20,6 +21,8 @@ const HomePage = () => {
                 return <Projects />;
             case 'contact':
                 return <FormHandler />;
+            case 'skills':
+                return <Skills />;
             default:
                 return <AboutSection />;
         }

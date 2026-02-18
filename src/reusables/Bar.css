@@ -13,6 +13,12 @@
     color: var(--text-white);
     background-color: var(--bg-hover);
 }
+.elements button.active {
+    color: var(--text-white);
+    background-color: var(--bg-hover);
+    border-radius: 5px;
+}
+
 .elements button{
     background-color: var(--bg-main);
     color: var(--text-light);

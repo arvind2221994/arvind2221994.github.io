@@ -1,6 +1,6 @@
 @import "../variables.css";
 
-#about, #contact, #projects{
+#about, #contact, #projects, #skills{
     font-family: 'Inter', sans-serif;
     padding-left: 20px;
     padding-right: 20px;
@@ -151,31 +151,7 @@ textarea::placeholder {
     color: #a855f7;
 }
 
-/* Skills */
-.skill-category {
-    margin-bottom: 20px;
-}
 
-.skill-category h3 {
-    color: #333;
-    font-size: 1.1em;
-    margin-bottom: 10px;
-}
-
-.skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.skill-tag {
-    background: linear-gradient(135deg, #6366f1, #f4f1f7);
-    color: white;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.9em;
-    font-weight: 500;
-}
 
 /* Experience & Education */
 .experience-item,
