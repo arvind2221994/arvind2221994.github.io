@@ -1,5 +1,11 @@
 .contact-info{
     font-size: 1.5rem;
+    flex-direction: row;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 }
 
 .icon{

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useCallback, use } from 'react';
+import React, { useState, useRef, useEffect, useCallback} from 'react';
 import './sudoku.css';
 import Confetti from 'react-confetti';
 import Footer from '../footer/Footer';

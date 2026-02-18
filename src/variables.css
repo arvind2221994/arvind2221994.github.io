@@ -15,11 +15,11 @@
   
   /* Background Colors */
   --bg-white: #fff;
-  --bg-light: #cac2c2;
+  --bg-light: #998c8c;
   --bg-light-blue: #aac8d5;
   --bg-dark: #000;
   --bg-blue: #61b2e7;
-  --bg-dark-blue: #062b55;
+  --bg-hover: rgb(119, 110, 110);
   --bg-red: #ff4c4c;
   --bg-incorrect: #f3b7b7;
   --bg-main: rgb(68, 60, 60);

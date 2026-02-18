@@ -8,9 +8,7 @@
     padding-bottom: 12px;
     border: 3px solid black;
     text-align: center;
-    width: 15%;
-    margin-left:10px;
-    margin-top: 20px;
+    width: 20%;
     display: inline-block;
 }
 .title-card-image{
@@ -21,7 +19,7 @@
     object-fit: cover;
 }
 .title-card-title{
-    color: var(--text-light);
+    color: var(--text-white);
     font-size: 2em;
     font-weight: bold;
     margin:0;
