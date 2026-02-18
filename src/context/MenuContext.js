@@ -1,22 +1,19 @@
 import React, { createContext, useState, useContext } from 'react';
 import { isMobileDevice } from '../utility/helpers';
 
-const MenuContext = createContext();
+export const MenuContext = createContext();
 
 export const useMenu = () => {
-  return useContext(Menu.Context);
+  return useContext(MenuContext);
 };
 
 export const MenuProvider = ({ children }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [menuWidth, setMenuWidth] = useState('0%');
-  const [activeSection, setActiveSection] = useState('about');
+  //const [menuWidth, setMenuWidth] = useState('0%');
+  const [activeSection, setActiveSection] = useState('home');
 
   const handleToggle = () => {
-    const newExpanded = !isExpanded;
-    setIsExpanded(newExpanded);
     const isMobile = isMobileDevice();
-    setMenuWidth(newExpanded ? (isMobile ? '100%' : '15%'): '0%');
+    //setMenuWidth(isMobile ? '100%' : '15%');
   };
 
   const handleLinkClick = (section) => {
@@ -25,8 +22,6 @@ export const MenuProvider = ({ children }) => {
   };
 
   const value = {
-    isExpanded,
-    menuWidth,
     activeSection,
     handleToggle,
     handleLinkClick,
@@ -35,4 +30,4 @@ export const MenuProvider = ({ children }) => {
   return <MenuContext.Provider value={value}>{children}</MenuContext.Provider>;
 };
 
-export default MenuContext;
+export default MenuProvider;

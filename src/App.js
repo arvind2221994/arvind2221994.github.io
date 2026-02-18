@@ -7,6 +7,7 @@ const Minesweeper = lazy(() => import('./minesweeper/game'));
 const Sudoku = lazy(() => import('./sudoku/sudoku'));
 const HomePage = lazy(() => import('./HomePage'));
 import { isMobileDevice } from './utility/helpers';
+import { MenuProvider } from './context/MenuContext';
 
 const Home = () => {
   const [mode, setMode] = useState('GUI');
@@ -39,7 +40,7 @@ const App = () => {
     <Router>
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<MenuProvider><Home /></MenuProvider>} />
           <Route path="/tictactoe" element={<TicTacToe />} />
           <Route path="/minesweeper" element={<Minesweeper />} />
           <Route path="/sudoku" element={<Sudoku />} />

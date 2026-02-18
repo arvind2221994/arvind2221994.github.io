@@ -9,11 +9,11 @@
     padding: 5px;
     gap: 10px;
 }
-.item:hover{
+.elements button:hover{
     color: var(--text-white);
     background-color: var(--bg-hover);
 }
-.item{
+.elements button{
     background-color: var(--bg-main);
     color: var(--text-light);
     border: none;
