@@ -1,6 +1,6 @@
 import React from 'react';
 import resumeData from '../data/resumeData.json';
-import './AboutSection.css';
+import './forms.css';
 
 const AboutSection = () => {
   const { summaryHTML } = resumeData.about;
