@@ -16,7 +16,10 @@ const FormHandler = () => {
                 <div className="input-group">
                     <textarea id="message" name="message" placeholder='Enter Message' rows={5} cols={10} required></textarea>
                 </div>
-                <button id="cta" type="submit"><IoIosSend className="send-icon" /> Send Message</button>
+                <div className="input-group">
+                    <button id="cta" type="submit"><IoIosSend className="send-icon" /> Send Message</button>
+                </div>
+                
             </form>
         </section>
     );

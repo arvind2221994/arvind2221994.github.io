@@ -75,7 +75,7 @@ textarea::placeholder {
 }
 
 #cta{
-    background-color: var(--primary-color);
+    background-color: var(--btn-color);
     color: var(--text-white);
     border: none;
     padding: 12px 20px;
@@ -84,4 +84,8 @@ textarea::placeholder {
     cursor: pointer;
     font-family: 'Inter', sans-serif;
     transition: background-color 0.3s ease;
+}
+
+#cta:hover {
+    background-color: var(--bg-hover);
 }
