@@ -12,40 +12,45 @@
     padding: var(--spacing-md);
     border-bottom: 1px solid var(--border-light);
 }
-.leftDiv{
+
+.leftDiv {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
-#headerH1{
+
+#headerH1 {
     font-size: 2.5rem;
     font-weight: 600;
-    background: linear-gradient(135deg, var( --text-dark-blue) 0%, var( --text-dark-blue) 100%);
+    background: linear-gradient(135deg, var(--text-dark-blue) 0%, var(--text-dark-blue) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.leftDiv span{
-    display:flex;
+
+.leftDiv span {
+    display: flex;
     align-items: center;
 }
-.arrowButton{
+
+.arrowButton {
     font-size: 2rem;
     cursor: pointer;
     color: var(--text-dark);
     transition: transform 0.3s ease;
 }
-.navDiv{
-    border: 1px solid var(--primary-color); 
+
+.navDiv {
+    border: 1px solid var(--primary-color);
     border-radius: 4px;
     overflow: hidden;
-    flex-direction:row;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.terminalLink{
+.terminalLink {
     padding: var(--spacing-sm) var(--spacing-md);
     text-decoration: none;
     border: 1px solid var(--primary-color);
@@ -54,26 +59,29 @@
     font-size: 1.6rem;
 }
 
-#guiLink{
+#guiLink {
     background-color: transparent;
-    color: var(--primary-color);
+    color: var(--primary-dark);
+    font-weight: 700;
 }
-#cliLink{
-    background-color: var(--primary-color);
+
+#cliLink {
+    background-color: var(--primary-dark);
     color: var(--text-white);
+    font-weight: 700;
 }
 
 .name-heading {
-  font-family: var(--font-primary);
-  font-weight: 700;
-  text-transform: uppercase;
-  margin: 0;
-  color: var(--secondary-color);
+    font-family: var(--font-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    color: var(--secondary-color);
 }
 
 button {
-  font-family: var(--font-mono);
-  color: var(--primary-color);
+    font-family: var(--font-mono);
+    color: var(--primary-color);
 }
 
 /* h1 {
@@ -89,13 +97,15 @@ button {
 
 @media (max-width: 768px) {
     #headerH1 {
-        display:none;
+        display: none;
     }
+
     .topNav {
-        gap:1.3rem;
+        gap: 1.3rem;
     }
-    .terminalLink{
+
+    .terminalLink {
         font-size: 1rem;
-        padding:0.3rem;
+        padding: 0.3rem;
     }
 }

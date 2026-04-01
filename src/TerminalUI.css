@@ -1,0 +1,476 @@
+/* ═══════════════════════════════════════════════════
+   Terminal UI — Premium Retro Terminal Stylesheet
+   ═══════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500;700&display=swap');
+
+/* ── Theme Variables ─────────────────────────────── */
+
+.terminal-container {
+  --term-bg: #0a0e14;
+  --term-bg-titlebar: #1a1e25;
+  --term-border: #1e2330;
+  --term-shadow: rgba(0, 0, 0, 0.6);
+}
+
+.theme-green {
+  --term-fg: #33ff99;
+  --term-fg-dim: #1a7a4d;
+  --term-fg-accent: #00cc66;
+  --term-fg-highlight: #66ffbb;
+  --term-fg-error: #ff4c4c;
+  --term-fg-success: #33ff99;
+  --term-fg-border: #1a5c3a;
+  --term-fg-link: #33ccff;
+  --term-fg-skill: #80ffcc;
+  --term-prompt-user: #33ff99;
+  --term-prompt-host: #00cc66;
+  --term-prompt-path: #66ccff;
+  --term-glow: rgba(51, 255, 153, 0.08);
+  --term-cursor: #33ff99;
+  --term-selection: rgba(51, 255, 153, 0.15);
+}
+
+.theme-amber {
+  --term-fg: #ffb347;
+  --term-fg-dim: #8a6a30;
+  --term-fg-accent: #ffa500;
+  --term-fg-highlight: #ffd699;
+  --term-fg-error: #ff4c4c;
+  --term-fg-success: #ffcc00;
+  --term-fg-border: #5c4a1a;
+  --term-fg-link: #ffcc66;
+  --term-fg-skill: #ffe0a3;
+  --term-prompt-user: #ffb347;
+  --term-prompt-host: #ffa500;
+  --term-prompt-path: #ffcc66;
+  --term-glow: rgba(255, 179, 71, 0.08);
+  --term-cursor: #ffb347;
+  --term-selection: rgba(255, 179, 71, 0.15);
+}
+
+.theme-cyan {
+  --term-fg: #00e5ff;
+  --term-fg-dim: #006b7a;
+  --term-fg-accent: #00bcd4;
+  --term-fg-highlight: #80f0ff;
+  --term-fg-error: #ff4c4c;
+  --term-fg-success: #00e676;
+  --term-fg-border: #1a4a5c;
+  --term-fg-link: #80d8ff;
+  --term-fg-skill: #b3f5ff;
+  --term-prompt-user: #00e5ff;
+  --term-prompt-host: #00bcd4;
+  --term-prompt-path: #80d8ff;
+  --term-glow: rgba(0, 229, 255, 0.08);
+  --term-cursor: #00e5ff;
+  --term-selection: rgba(0, 229, 255, 0.15);
+}
+
+.theme-white {
+  --term-fg: #e0e0e0;
+  --term-fg-dim: #6b6b6b;
+  --term-fg-accent: #bdbdbd;
+  --term-fg-highlight: #ffffff;
+  --term-fg-error: #ff6b6b;
+  --term-fg-success: #81c784;
+  --term-fg-border: #3a3a3a;
+  --term-fg-link: #90caf9;
+  --term-fg-skill: #f0f0f0;
+  --term-prompt-user: #81c784;
+  --term-prompt-host: #64b5f6;
+  --term-prompt-path: #ce93d8;
+  --term-glow: rgba(224, 224, 224, 0.05);
+  --term-cursor: #e0e0e0;
+  --term-selection: rgba(224, 224, 224, 0.15);
+}
+
+.theme-pink {
+  --term-fg: #ff80ab;
+  --term-fg-dim: #7a3d52;
+  --term-fg-accent: #f06292;
+  --term-fg-highlight: #ffb3c6;
+  --term-fg-error: #ff4c4c;
+  --term-fg-success: #69f0ae;
+  --term-fg-border: #5c1a3a;
+  --term-fg-link: #ce93d8;
+  --term-fg-skill: #f8bbd0;
+  --term-prompt-user: #ff80ab;
+  --term-prompt-host: #f06292;
+  --term-prompt-path: #ce93d8;
+  --term-glow: rgba(255, 128, 171, 0.08);
+  --term-cursor: #ff80ab;
+  --term-selection: rgba(255, 128, 171, 0.15);
+}
+
+/* ── Container ───────────────────────────────────── */
+
+.terminal-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Fira Code', 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 13.5px;
+  line-height: 1.65;
+  background: var(--term-bg);
+  color: var(--term-fg);
+  cursor: text;
+  position: relative;
+  overflow: hidden;
+}
+
+/* CRT Scanline overlay */
+.terminal-container::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.06) 2px,
+    rgba(0, 0, 0, 0.06) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Subtle vignette */
+.terminal-container::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 60%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ── Title Bar ───────────────────────────────────── */
+
+.terminal-titlebar {
+  display: flex;
+  align-items: center;
+  height: 38px;
+  padding: 0 14px;
+  background: var(--term-bg-titlebar);
+  border-bottom: 1px solid var(--term-border);
+  flex-shrink: 0;
+  user-select: none;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(12px);
+}
+
+.terminal-titlebar-buttons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.tb-btn {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: opacity 0.2s ease;
+}
+
+.tb-btn:hover {
+  opacity: 0.8;
+}
+
+.tb-close {
+  background: #ff5f56;
+  box-shadow: 0 0 6px rgba(255, 95, 86, 0.4);
+}
+
+.tb-minimize {
+  background: #ffbd2e;
+  box-shadow: 0 0 6px rgba(255, 189, 46, 0.4);
+}
+
+.tb-maximize {
+  background: #27c93f;
+  box-shadow: 0 0 6px rgba(39, 201, 63, 0.4);
+}
+
+.terminal-titlebar-text {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  color: #6a6e7a;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.terminal-titlebar-spacer {
+  width: 60px;
+}
+
+/* ── Terminal Body ───────────────────────────────── */
+
+.terminal-body {
+  flex: 1;
+  padding: 16px 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--term-fg-dim) transparent;
+}
+
+.terminal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.terminal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.terminal-body::-webkit-scrollbar-thumb {
+  background: var(--term-fg-dim);
+  border-radius: 3px;
+}
+
+.terminal-body::-webkit-scrollbar-thumb:hover {
+  background: var(--term-fg-accent);
+}
+
+/* ── Output Lines ────────────────────────────────── */
+
+.terminal-line {
+  animation: lineAppear 0.12s ease-out;
+}
+
+.terminal-line pre {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+@keyframes lineAppear {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Line Styles ─────────────────────────────────── */
+
+.terminal-ascii pre {
+  color: var(--term-fg-highlight);
+  text-shadow: 0 0 12px var(--term-glow), 0 0 30px var(--term-glow);
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.terminal-highlight pre {
+  color: var(--term-fg-highlight);
+  font-weight: 600;
+}
+
+.terminal-dim pre {
+  color: var(--term-fg-dim);
+}
+
+.terminal-accent pre {
+  color: var(--term-fg-accent);
+}
+
+.terminal-text pre {
+  color: var(--term-fg);
+}
+
+.terminal-success pre {
+  color: var(--term-fg-success);
+}
+
+.terminal-error pre {
+  color: var(--term-fg-error);
+}
+
+.terminal-border pre {
+  color: var(--term-fg-border);
+}
+
+.terminal-link pre {
+  color: var(--term-fg-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.terminal-link pre:hover {
+  color: var(--term-fg-highlight);
+}
+
+.terminal-skill pre {
+  color: var(--term-fg-skill);
+}
+
+.terminal-help-row pre {
+  color: var(--term-fg);
+}
+
+.terminal-prompt-echo pre {
+  color: var(--term-fg-dim);
+}
+
+.terminal-color-blocks pre {
+  background: linear-gradient(
+    90deg,
+    #ff5f56 0%,
+    #ffbd2e 14%,
+    #27c93f 28%,
+    #00e5ff 42%,
+    #6c71c4 56%,
+    #ff80ab 70%,
+    #e0e0e0 84%,
+    #ffb347 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── Input Line ──────────────────────────────────── */
+
+.terminal-input-line {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 2px 0;
+  animation: lineAppear 0.15s ease-out;
+}
+
+.terminal-prompt {
+  white-space: nowrap;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.prompt-user {
+  color: var(--term-prompt-user);
+  font-weight: 600;
+}
+
+.prompt-at {
+  color: var(--term-fg-dim);
+}
+
+.prompt-host {
+  color: var(--term-prompt-host);
+  font-weight: 600;
+}
+
+.prompt-colon {
+  color: var(--term-fg-dim);
+}
+
+.prompt-path {
+  color: var(--term-prompt-path);
+  font-weight: 500;
+}
+
+.prompt-dollar {
+  color: var(--term-fg-dim);
+  margin-right: 8px;
+}
+
+.terminal-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--term-fg);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  caret-color: var(--term-cursor);
+  padding: 0;
+  margin: 0;
+}
+
+.terminal-input::selection {
+  background: var(--term-selection);
+}
+
+/* Blinking cursor via caret */
+@keyframes caretBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.terminal-input:focus {
+  caret-color: var(--term-cursor);
+}
+
+/* ── Responsive ──────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .terminal-container {
+    font-size: 11.5px;
+    line-height: 1.5;
+  }
+
+  .terminal-body {
+    padding: 10px 10px;
+  }
+
+  .terminal-ascii pre {
+    font-size: 7px;
+    line-height: 1.1;
+  }
+
+  .terminal-titlebar-text {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .terminal-container {
+    font-size: 10.5px;
+  }
+
+  .terminal-ascii pre {
+    font-size: 5.5px;
+  }
+
+  .terminal-body {
+    padding: 8px 6px;
+  }
+}
+
+/* ── Subtle Glow Effect ──────────────────────────── */
+
+.terminal-body::after {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to top, var(--term-bg), transparent);
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.7;
+}
+
+/* ── Selection ───────────────────────────────────── */
+
+.terminal-container *::selection {
+  background: var(--term-selection);
+  color: var(--term-fg-highlight);
+}
