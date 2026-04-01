@@ -4,19 +4,20 @@
   --primary-dark: #1a7beb;
   --secondary-color: #69686b;
   --btn-color: #665e5e;
-  
+
   /* Text Colors */
   --text-dark: #333;
   --text-light: rgb(197, 189, 189);
   --text-white: #fff;
-  --text-blue: #0d5db8;
+  --text-blue: #3078ca;
   --text-black: #000;
   --text-dark-blue: #062b55;
   --text-red: #973131;
-  
+  --text-green: rgb(56, 184, 56);
+
   /* Background Colors */
   --bg-white: #fff;
-  --bg-light: #998c8c;
+  --bg-light: #bbadad;
   --bg-light-blue: #aac8d5;
   --bg-dark: #000;
   --bg-blue: #61b2e7;
@@ -24,25 +25,25 @@
   --bg-red: #ff4c4c;
   --bg-incorrect: #f3b7b7;
   --bg-main: rgb(68, 60, 60);
-  
+
   /* Border Colors */
   --border-light: #ddd;
   --border-dark: #333;
   --border-yellow: #967315;
-  
+
   /* Gradient Colors */
   --gradient-start: #2797e2;
   --gradient-end: #69686b;
-  
+
   /* Terminal Colors */
   --terminal-bg: #000;
   --terminal-text: #0f0;
-  
+
   /* Spacing */
   --spacing-sm: 10px;
   --spacing-md: 20px;
   --spacing-lg: 40px;
-  
+
   /* Font Families */
   --font-primary: 'Montserrat', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;

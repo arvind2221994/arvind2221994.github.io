@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ReactCardFlip from 'react-card-flip';
-import TagCloud from 'react-tag-cloud';
+//import TagCloud from 'react-tag-cloud';
 import resumeData from '../data/resumeData.json';
 import './Skills.css';
 
@@ -42,9 +42,9 @@ const Skills = () => {
         <p>From pixels to pipelines — my tech stack that powers my innovation</p>
       </div>
       <div className="skills-grid">
-        {resumeData.skills.map((skillCategory, index) => (
+        {/* {resumeData.skills.map((skillCategory, index) => (
           <SkillCard key={index} category={skillCategory.category} skills={skillCategory.skills} />
-        ))}
+        ))} */}
       </div>
     </section>
   );

@@ -84,45 +84,136 @@
   "skills": [
     {
       "category": "Frontend & Design",
-      "skills": ["HTML", "CSS", "Tailwind", "Javascript", "Typescript", "ReactJS", "Bootstrap", "Figma", "Crownpeak CMS", "Chrome Dev Tools", "Web workers", "IndexedDB", "Redux", "Sockets"]
+      "skills": [
+        "HTML",
+        "CSS",
+        "Tailwind",
+        "Javascript",
+        "Typescript",
+        "ReactJS",
+        "Bootstrap",
+        "Figma",
+        "Crownpeak CMS",
+        "Chrome Dev Tools",
+        "Web workers",
+        "IndexedDB",
+        "Redux",
+        "Sockets"
+      ]
     },
     {
       "category": "Back-end development",
-      "skills": ["Node.js", "C++", "REST API", "Postman", "ADB2C", "GraphQL", "AWS SDK"]
+      "skills": [
+        "Node.js",
+        "C++",
+        "REST API",
+        "Postman",
+        "ADB2C",
+        "GraphQL",
+        "AWS SDK"
+      ]
     },
     {
       "category": "Cloud infrastructure",
-      "skills": ["AWS S3", "AWS Lambda", "AWS EKS", "Cloudwatch", "NLB", "SQS", "IAM", "KMS", "GCP Cloud Run", "Firebase", "Pub/Sub", "Cloudflare", "Redis"]
+      "skills": [
+        "AWS S3",
+        "AWS Lambda",
+        "AWS EKS",
+        "Cloudwatch",
+        "NLB",
+        "SQS",
+        "IAM",
+        "KMS",
+        "GCP Cloud Run",
+        "Firebase",
+        "Pub/Sub",
+        "Cloudflare",
+        "Redis"
+      ]
     },
     {
       "category": "DevOps & Monitoring",
-      "skills": ["Python", "AzureDevOps", "Git", "SonarQube", "Datadog", "Google Search Console", "Docker"]
+      "skills": [
+        "Python",
+        "AzureDevOps",
+        "Git",
+        "SonarQube",
+        "Datadog",
+        "Google Search Console",
+        "Docker"
+      ]
     },
     {
       "category": "Generative AI",
-      "skills": ["Copilot", "Gemini", "Model Context Protocol (MCP)", "Agentic AI", "Prompt Engineering", "BMAD"]
+      "skills": [
+        "Copilot",
+        "Gemini",
+        "Model Context Protocol (MCP)",
+        "Agentic AI",
+        "Prompt Engineering",
+        "BMAD"
+      ]
     }
   ],
-  "certifications":[ "Github Copilot GH 300 Certification (Microsoft)", "Prompt Engineering (Coursera)", "Amazon Bedrock (Amazon Workshops)", "GCP Firebase & Cloud Run (Google Cloud Skills)"  ],
+  "certifications": [
+    "Github Copilot GH 300 Certification (Microsoft)",
+    "Prompt Engineering (Coursera)",
+    "Amazon Bedrock (Amazon Workshops)",
+    "GCP Firebase & Cloud Run (Google Cloud Skills)"
+  ],
   "projects": [
     {
-      "title": "Project Name 1",
-      "description": "A brief description of what this project does and the problem it solves.",
-      "technologies": ["React", "Node.js", "MongoDB"],
-      "link": "https://project1.com",
-      "github": "https://github.com/yourusername/project1"
+      "title": "Portfolio",
+      "description": "This project contains the code for my portfolio website and sample games built for educational purpose",
+      "technologies": [
+        "React",
+        "CSS",
+        "HTML",
+        "Javascript"
+      ],
+      "link": "https://arvind2221994.github.io/",
+      "github": "https://github.com/arvind2221994/arvind2221994.github.io"
     },
     {
-      "title": "Project Name 2",
-      "description": "Another project description highlighting key features and impact.",
-      "technologies": ["Python", "Django", "PostgreSQL"],
-      "github": "https://github.com/yourusername/project2"
+      "title": "Chatbot app",
+      "description": "A chatbot application that uses Gemini API to process prompts and return responses.",
+      "technologies": [
+        "Python",
+        "NextJS",
+        "Gemini API",
+        "Prompt Engineering",
+        "Cloudflare"
+      ],
+      "link": "https://cf-chatbot-4s7.pages.dev/interview/",
+      "github": "https://github.com/arvind2221994/cf-chatbot"
     },
     {
-      "title": "Project Name 3",
-      "description": "Description of a third project showcasing different skills.",
-      "technologies": ["TypeScript", "Vue.js", "Express"],
-      "link": "https://project3.com"
+      "title": "TravelingBeku",
+      "description": "A high-performance Travel Content Hub with a built-in Admin CMS.",
+      "technologies": [
+        "TypeScript",
+        "Next.js",
+        "postcss",
+        "JWT",
+        "Cloudflare R2",
+        "wrangler"
+      ],
+      "link": "https://www.travelingbeku.com/",
+      "github": "https://github.com/arvind2221994/travelingbeku"
+    },
+    {
+      "title": "Naamakarana",
+      "description": "A high-performance Travel Content Hub with a built-in Admin CMS.",
+      "technologies": [
+        "TypeScript",
+        "Vite",
+        "HTML",
+        "CSS",
+        "Gemini API",
+        "wrangler"
+      ],
+      "link": "https://www.travelingbeku.com/",
+      "github": "https://github.com/arvind2221994/untitled.github.io"
     }
   ]
 }

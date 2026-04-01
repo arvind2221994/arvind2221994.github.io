@@ -21,8 +21,6 @@ const HomePage = () => {
                 return <Projects />;
             case 'contact':
                 return <FormHandler />;
-            case 'skills':
-                return <Skills />;
             default:
                 return <AboutSection />;
         }
