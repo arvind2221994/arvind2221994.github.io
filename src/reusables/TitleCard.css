@@ -32,3 +32,11 @@
     padding:15px;
     margin:0;
 }
+
+@media (max-width: 768px) {
+    .title-card {
+        width: 100% !important;
+        box-sizing: border-box;
+        display: block;
+    }
+}

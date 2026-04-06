@@ -1,4 +1,3 @@
-
 .headerNav {
     position: sticky;
     top: 0;
@@ -11,35 +10,30 @@
     padding: var(--spacing-md);
     border-bottom: 1px solid var(--border-light);
 }
-.headerMenu{
+
+.headerMenu {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
-.middleHeader{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+
+.middleHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.middleHeader h1{
+
+.middleHeader h1 {
     font-size: 2.5rem;
     font-weight: 600;
-    background: linear-gradient(135deg, var( --text-dark-blue) 0%, var( --text-dark-blue) 100%);
+    background: linear-gradient(135deg, var(--text-dark-blue) 0%, var(--text-dark-blue) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.navDiv{
-    border: 1px solid var(--primary-color); 
-    border-radius: 4px;
-    overflow: hidden;
-    flex-direction:row;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-.terminalLink{
+
+.terminalLink {
     padding: var(--spacing-sm) var(--spacing-md);
     text-decoration: none;
     border: 1px solid var(--primary-color);
@@ -47,14 +41,16 @@
     transition: all 0.3s;
     font-size: 1.6rem;
 }
+
 .middleHeader p {
-  font-family: var(--font-primary);
-  font-weight: 700;
-  text-transform: uppercase;
-  margin: 0;
-  color: var(--secondary-color);
+    font-family: var(--font-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    color: var(--secondary-color);
 }
-.arrowButton{
+
+.arrowButton {
     font-size: 2rem;
     cursor: pointer;
     color: var(--text-dark);
@@ -63,13 +59,15 @@
 
 @media (max-width: 768px) {
     #headerH1 {
-        display:none;
+        display: none;
     }
+
     .topNav {
-        gap:1.3rem;
+        gap: 1.3rem;
     }
-    .terminalLink{
+
+    .terminalLink {
         font-size: 1rem;
-        padding:0.3rem;
+        padding: 0.3rem;
     }
 }
